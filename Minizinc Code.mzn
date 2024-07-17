@@ -1,5 +1,3 @@
-include "globals.mzn";
-
 % Numero di giocatori (da file di input)
 int: n;
 % Numero di squadre (da file di input)
