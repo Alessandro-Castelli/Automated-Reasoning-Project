@@ -2,6 +2,7 @@
 int: n;
 % Numero di squadre (da file di input)
 int: k;
+
 % Ruoli
 enum Role = {g, d, m, f};  % g=portiere, d=difensore, m=centrocampista, f= attaccante
 
