@@ -1,15 +1,15 @@
-Input file: data_5.dzn
+Input file: data_3.dzn
 Input data:
 n = 7;
 k = 1;
 roles = [
-{d, g},
-{d, g},
+{m, g},
 {d, g},
 {d, g},
 {d, f},
 {f, g},
-{m, g}
+{g, d},
+{g, m}
 ];
 num_pairs = 0;
 player1 = [];
@@ -17,11 +17,11 @@ player2 = [];
 
 Output Gecode:
 Penalties per team:
-1: Penalty 1
-Total penalty: 1
+1: Penalty 0
+Total penalty: 0
 -------------
 Teams:
-Player 1: Team 1, Role: d
+Player 1: Team 1, Role: m
 Player 2: Team 1, Role: d
 Player 3: Team 1, Role: d
 Player 4: Team 1, Role: d
@@ -31,23 +31,23 @@ Player 7: Team 1, Role: m
 ----------
 ==========
 
-Tempo di esecuzione Gecode: 0.13 secondi
+Tempo di esecuzione Gecode: 0.17 secondi
 
 Output Chuffed:
 Penalties per team:
-1: Penalty 1
-Total penalty: 1
+1: Penalty 0
+Total penalty: 0
 -------------
 Teams:
-Player 1: Team 1, Role: d
+Player 1: Team 1, Role: m
 Player 2: Team 1, Role: d
-Player 3: Team 1, Role: g
-Player 4: Team 1, Role: d
-Player 5: Team 1, Role: f
-Player 6: Team 1, Role: f
+Player 3: Team 1, Role: d
+Player 4: Team 1, Role: f
+Player 5: Team 1, Role: g
+Player 6: Team 1, Role: d
 Player 7: Team 1, Role: m
 ----------
 ==========
-% [X_INTRODUCED_30_ > 0]
+% [<UNKNOWN>]
 
 Tempo di esecuzione Chuffed: 0.13 secondi

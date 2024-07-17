@@ -1,13 +1,13 @@
 n = 7;
 k = 1;
 roles = [
-{g, f},
-{f, g},
+{m, d},
+{m, d},
 {d, g},
 {f, d},
-{m, d},
-{f, m},
-{m, f}
+{d, g},
+{d, g},
+{m, g}
 ];
 num_pairs = 0;
 player1 = [];

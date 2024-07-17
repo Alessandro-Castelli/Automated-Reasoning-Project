@@ -1,3 +1,4 @@
+# Librerie necessarie
 import os
 import subprocess
 import time
@@ -10,7 +11,7 @@ current_dir = os.getcwd()
 desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
 model_path = os.path.join(current_dir, "Minizinc Code.mzn")
 input_dir = os.path.join(current_dir, "instancesMinizinc", "easy")
-output_dir = os.path.join(current_dir, "output")    
+output_dir = os.path.join(current_dir, "output Easy Minizinc")    
 
 # Crea la cartella di output se non esiste
 os.makedirs(output_dir, exist_ok=True)
@@ -43,7 +44,7 @@ for filename in os.listdir(input_dir):
         output_chuffed, error_chuffed, return_code_chuffed, exec_time_chuffed = run_minizinc(model_path, input_path, "Chuffed")
 
         # Salva i risultati nel file di output
-        with open(output_file_path, "w") as f:
+        with open(output_file_path, "w", encoding="utf-8") as f:
             f.write(f"Input file: {filename}\n")
             f.write("Input data:\n")
             with open(input_path, "r") as input_file:

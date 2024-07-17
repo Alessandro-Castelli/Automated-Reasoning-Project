@@ -1,0 +1,26 @@
+Input file: data_10.dzn
+Input data:
+n = 7;
+k = 2;
+roles = [
+{m, f},
+{d, m},
+{m, d},
+{d, g},
+{d, g},
+{g, d},
+{d, g}
+];
+num_pairs = 1;
+player1 = [5];
+player2 = [1];
+
+Output Gecode:
+Il problema non è soddisfacibile con Gecode.
+
+Tempo di esecuzione Gecode: 0.18 secondi
+
+Output Chuffed:
+Il problema non è soddisfacibile con Chuffed.
+
+Tempo di esecuzione Chuffed: 0.16 secondi

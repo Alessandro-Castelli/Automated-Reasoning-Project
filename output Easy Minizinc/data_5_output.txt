@@ -1,15 +1,15 @@
-Input file: data_2.dzn
+Input file: data_5.dzn
 Input data:
 n = 7;
 k = 1;
 roles = [
-{g, d},
+{d, m},
+{g, m},
+{d, g},
 {m, d},
-{m, f},
-{m, g},
-{f, d},
-{m, g},
-{f, d}
+{m, d},
+{f, m},
+{f, g}
 ];
 num_pairs = 0;
 player1 = [];
@@ -21,13 +21,13 @@ Penalties per team:
 Total penalty: 0
 -------------
 Teams:
-Player 1: Team 1, Role: d
+Player 1: Team 1, Role: m
 Player 2: Team 1, Role: m
-Player 3: Team 1, Role: f
-Player 4: Team 1, Role: m
+Player 3: Team 1, Role: d
+Player 4: Team 1, Role: d
 Player 5: Team 1, Role: d
-Player 6: Team 1, Role: g
-Player 7: Team 1, Role: d
+Player 6: Team 1, Role: f
+Player 7: Team 1, Role: g
 ----------
 ==========
 
@@ -41,13 +41,13 @@ Total penalty: 0
 Teams:
 Player 1: Team 1, Role: d
 Player 2: Team 1, Role: m
-Player 3: Team 1, Role: f
+Player 3: Team 1, Role: d
 Player 4: Team 1, Role: m
-Player 5: Team 1, Role: d
-Player 6: Team 1, Role: g
-Player 7: Team 1, Role: d
+Player 5: Team 1, Role: m
+Player 6: Team 1, Role: f
+Player 7: Team 1, Role: g
 ----------
 ==========
 % [<UNKNOWN>]
 
-Tempo di esecuzione Chuffed: 0.13 secondi
+Tempo di esecuzione Chuffed: 0.12 secondi
