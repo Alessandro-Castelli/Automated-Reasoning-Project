@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage{graphicx}  
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{amsfonts} 
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+\begin{document}
+
+\title{Report Automated Reasoning} 
+\author{Alessandro Castelli - (147073)} 
+\date{\today}
+
+\maketitle
+\thispagestyle{empty}  
+\newpage
+\tableofcontents
+\setcounter{page}{1}
+\pagenumbering{arabic} % Numerazione in numeri arabi
+\pagestyle{fancy}
+\fancyhf{} % Pulisce intestazioni e piè di pagina
+\fancyfoot[C]{\thepage} % Centra il numero di pagina nel piè di pagina
+\renewcommand{\headrulewidth}{0pt} % Rimuove la linea orizzontale dell'intestazione
+\newpage
+
+\section{Introduzione}
+Il presente report si concentra sull'analisi delle soluzioni al problema assegnato, 
+riguardante l'organizzazione di un torneo di calcio a 7. 
+Il problema in questione presenta diverse sfide legate alla suddivisione ottimale dei giocatori in squadre, rispettando specifici vincoli e minimizzando le penalità assegnate alle diverse configurazioni di squadra.
+
+\subsection{Problema: Torneo di calcio a 7}
+\begin{quote}
+    Consideriamo un insieme di \( n \) giocatori di calcio \( p_1, p_2, \ldots, p_n \).
+    Supponiamo che n sia un multiplo di 7. 
+    Ciascuno di loro può giocare come portiere (g), difensore (d), centrocampista (m), attaccante (f). 
+    Ognuno di loro sceglie esattamente due di queste opzioni (dati di input).
+    Il problema è quello di dividerli in k squadre dove ciascuna squadra ha esattamente un g, almeno un d, almeno un m e almeno un f. Un ruolo unico viene assegnato a ciascuno di loro tra uno dei due dichiarati in input.
+    Se una squadra ha esattamente 3 d, 2 m e 1 f, la sua penalità è 0. Se una squadra ha esattamente 2 d, 3 m e 1 f, la sua penalità è 0. Decidi (sei libero di assegnare valori) penalità non nulle per tutte le altre conformazioni.
+    Trova una soluzione che minimizzi la somma delle penalità.
+    Viene fornito anche un elenco di vincoli del tipo differentteam (\( p_i, p_j\)) 
+    in input che costringono \(p_i\) e \(p_j\) a essere in squadre diverse. 
+\end{quote}
+Il problema affrontato è un \texttt{COP (Constraint Optimization Problem)}. Per risolverlo, sono stati sviluppati due programmi che impiegano due tecniche di programmazione distinte: \textbf{programmazione per vincoli con MiniZinc} e \textbf{Answer Set Programming utilizzando il solver Clingo}.
+\\
+Entrambi gli approcci sono stati selezionati per la loro efficacia nella gestione di problemi complessi e vincolati, sebbene differiscano nelle metodologie e negli strumenti adottati per ottenere la soluzione ottimale. 
+\\
+Nelle sezioni seguenti, verranno fornite descrizioni approfondite di entrambi gli approcci.
+Inoltre, sarà presentata un'analisi dei risultati ottenuti da ciascun metodo. 
+
+\section{Modellazione del problema}
+Prima di iniziare la fase di programmazione, ho proceduto con lo studio e l'analisi del testo. Di seguito riporto alcune assunzioni che ho fatto:
+
+Le assunzioni fatte per la risoluzione del problema sono le seguenti:
+
+\begin{itemize}
+    \item I giocatori iniziali sono \( n \) e \( n \) deve sempre essere un numero multiplo di 7.
+    \item Per le \( k \) squadre, non è necessario che ogni squadra abbia esattamente 7 giocatori; ogni squadra può avere un minimo di 4 giocatori (uno per ogni ruolo) e un massimo di \( n \).
+    \item Il numero di squadre \( k \) deve essere scelto in modo tale da avere senso rispetto al numero totale di giocatori; altrimenti, il problema non è soddisfacibile.
+    \item Ogni giocatore può ricoprire solo uno dei due ruoli selezionati per la sua assegnazione finale.
+    \item Ogni squadra deve avere esattamente un portiere (g), almeno un difensore (d), almeno un centrocampista (m) e almeno un attaccante (f).
+    \item È previsto un sistema di penalità per configurazioni di ruolo specifiche, dove determinate combinazioni non comportano penalità.
+    \item Sono forniti vincoli che richiedono che alcune coppie di giocatori siano assegnati a squadre diverse.
+\end{itemize}
+
+\section{Soluzione Minizinc}
+Nella seguente sezione troverai la spiegazione del modello Minzinc che è stato corutito per risolvere il problema.
+
+\end{document}
