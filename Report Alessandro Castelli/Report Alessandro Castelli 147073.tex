@@ -77,7 +77,7 @@ Il problema in questione presenta diverse sfide legate alla suddivisione ottimal
     Viene fornito anche un elenco di vincoli del tipo differentteam (\( p_i, p_j\)) 
     in input che costringono \(p_i\) e \(p_j\) a essere in squadre diverse. 
 \end{quote}
-Il problema affrontato è un \texttt{COP (Constraint Optimization Problem)}.
+Il problema affrontato è un \texttt{Constraint Optimization Problem} \textbf{\texttt{(COP)}}. 
 Per risolverlo, sono stati sviluppati due programmi che impiegano due tecniche di programmazione distinte: \textbf{programmazione per vincoli con MiniZinc} e \textbf{Answer Set Programming utilizzando il solver Clingo}.
 \\
 Entrambi gli approcci sono stati selezionati per la loro efficacia nella gestione di problemi complessi e vincolati, sebbene differiscano nelle metodologie e negli strumenti adottati per ottenere la soluzione ottimale. 
@@ -169,7 +169,45 @@ Il \textbf{Vincolo 2} specifica che ogni giocatore deve essere assegnato a uno d
 Infine, il \textbf{Vincolo 3} stabilisce che due giocatori predefiniti non devono appartenere alla stessa squadra. Questo vincolo può essere utilizzato, ad esempio, per evitare che due giocatori incompatibili giochino insieme o per distribuire equamente i giocatori più forti tra le squadre.
 \\
 Questi vincoli sono fondamentali per garantire una formazione delle squadre che sia equilibrata e conforme alle regole stabilite, facilitando così un'esperienza di gioco equa e competitiva.
+
+\subsection{Penalità}
+Nella competizione è stato previsto l'assegnamento di penalità alle squadre che non rispettano la configurazione richiesta del numero di giocatori nei vari ruoli. Questo criterio garantisce una formazione equilibrata e corretta per ciascuna squadra. 
+\\
+In particolare, le formazioni senza penalità (penalità 0) devono rispettare esattamente uno dei seguenti schemi:
+\begin{itemize}
+    \item 3 difensori, 2 centrocampisti, 1 attaccante, 1 portiere
+    \item 2 difensori, 3 centrocampisti, 1 attaccante, 1 portiere
+\end{itemize} 
+Qualsiasi altra combinazione di giocatori comporta una penalità (penalità 1).
+Di seguito è riportato il codice MiniZinc utilizzato per calcolare le penalità per ogni squadra. L'array \texttt{penalties} contiene le penalità assegnate a ciascuna squadra in base alla conformità con i requisiti sopra descritti.
+\begin{lstlisting}[style=minizinc, caption={Penalità}, label={lst:penalita}]
+array[1..k] of var 0..1: penalties;
+constraint
+    forall(t in 1..k) (
+        let {
+            var int: d_count = sum([assigned_role[j] == d | j in 1..n where team[j] == t]),
+            var int: m_count = sum([assigned_role[j] == m | j in 1..n where team[j] == t]),
+            var int: f_count = sum([assigned_role[j] == f | j in 1..n where team[j] == t])
+        } in
+        if d_count == 3 /\ m_count == 2 /\ f_count == 1 then
+            penalties[t] = 0
+        elseif d_count == 2 /\ m_count == 3 /\ f_count == 1 then
+            penalties[t] = 0
+        else
+            penalties[t] = 1
+        endif
+    );
+\end{lstlisting}
+
+\subsection{Obiettivo e risultati}
+L'obiettivo del programma è trovare la soluzione migliore che minimizzi le penalità (Listing \ref{lst:obb})
+
+\begin{lstlisting}[style=minizinc, caption={Obiettivo}, label={lst:obb}]
+    solve minimize total_penalty;
+\end{lstlisting}
 \end{multicols*}
+
+Per misurare le perfromance del modello ho creato una batteria di test: 10 facili, 10 di difficoltà media e 10 difficili.
 
 
 \end{document}

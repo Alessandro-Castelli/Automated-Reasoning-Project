@@ -4,3 +4,5 @@
 \contentsline {section}{\numberline {3}Soluzione Minizinc}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Input}{2}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}I vincoli Minizinc}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Penalità}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Obiettivo e risultati}{3}{subsection.3.4}%
