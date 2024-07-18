@@ -1,6 +1,6 @@
-PWD c:\Users\ales2\Desktop\AR Project\Report Alessandro Castelli
+PWD c:\Users\ales2\Desktop\AR Project\Automated-Reasoning-Project\Report Alessandro Castelli
 INPUT C:\Users\ales2\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\ales2\Desktop\AR Project\Report Alessandro Castelli\Report Alessandro Castelli 147073.tex
+INPUT c:\Users\ales2\Desktop\AR Project\Automated-Reasoning-Project\Report Alessandro Castelli\Report Alessandro Castelli 147073.tex
 OUTPUT Report Alessandro Castelli 147073.log
 INPUT C:\Users\ales2\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\ales2\MiKTeX\tex\latex\base\article.cls
@@ -101,6 +101,31 @@ INPUT C:\Users\ales2\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\ales2\MiKTeX\tex\generic\uniquecounter\uniquecounter.sty
 INPUT C:\Users\ales2\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
 INPUT C:\Users\ales2\MiKTeX\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\listings.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\listings.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\ales2\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\ales2\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\ales2\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\geometry\geometry.sty
+INPUT C:\Users\ales2\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Users\ales2\MiKTeX\tex\generic\iftex\ifvtex.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\tools\multicol.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\tools\multicol.sty
 INPUT C:\Users\ales2\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Users\ales2\MiKTeX\tex\latex\l3backend\l3backend-pdftex.def
 INPUT .\Report Alessandro Castelli 147073.aux
@@ -115,6 +140,7 @@ INPUT C:\Users\ales2\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
 INPUT C:\Users\ales2\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\ales2\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Users\ales2\MiKTeX\tex\latex\00miktex\epstopdf-sys.cfg
+INPUT C:\Users\ales2\MiKTeX\tex\latex\graphics\color.sty
 INPUT .\Report Alessandro Castelli 147073.out
 INPUT .\Report Alessandro Castelli 147073.out
 INPUT Report Alessandro Castelli 147073.out
@@ -171,9 +197,15 @@ INPUT C:\Users\ales2\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\ales2\MiKTeX\tex\latex\base\t1cmtt.fd
 INPUT C:\Users\ales2\MiKTeX\fonts\tfm\jknappen\ec\ectt1000.tfm
 INPUT C:\Users\ales2\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ales2\MiKTeX\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\ales2\MiKTeX\fonts\tfm\jknappen\ec\ectt0900.tfm
 INPUT Report Alessandro Castelli 147073.aux
 INPUT .\Report Alessandro Castelli 147073.out
 INPUT .\Report Alessandro Castelli 147073.out
+INPUT C:\Users\ales2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
+INPUT C:\Users\ales2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt0900.pk
 INPUT C:\Users\ales2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
 INPUT C:\Users\ales2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
 INPUT C:\Users\ales2\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\ectt1000.pk

@@ -7,11 +7,44 @@
 \usepackage{amsfonts} 
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{multicol}
 
+
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+
+\setlength{\columnsep}{1cm} % Imposta lo spazio tra le colonne
+
+% Definizione dello stile per MiniZinc
+\lstdefinestyle{minizinc}{
+    language=Python,  % Utilizziamo Python per la sintassi
+    backgroundcolor=\color{white}, % Colore di sfondo
+    basicstyle=\ttfamily\small,    % Font monospaziato
+    keywordstyle=\color{blue}\bfseries, % Parole chiave in blu
+    commentstyle=\color{green!50!black}, % Commenti in verde
+    stringstyle=\color{red},        % Stringhe in rosso
+    numberstyle=\tiny\color{gray},  % Stile della numerazione
+    stepnumber=1,                  % Numerazione ogni riga
+    numbersep=5pt,                 % Distanza della numerazione dal codice
+    breaklines=true,               % Andare a capo automatico
+    frame=single,                  % Cornice attorno al codice
+    captionpos=b,                   % Posizione della didascalia
+    frame=none
+}
+% Configurazione del pacchetto hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    filecolor=blue,
+    urlcolor=blue
+}
 \begin{document}
 
 \title{Report Automated Reasoning} 
-\author{Alessandro Castelli - (147073)} 
+\author{Alessandro Castelli \and (147073)} 
 \date{\today}
 
 \maketitle
@@ -24,8 +57,9 @@
 \fancyhf{} % Pulisce intestazioni e piè di pagina
 \fancyfoot[C]{\thepage} % Centra il numero di pagina nel piè di pagina
 \renewcommand{\headrulewidth}{0pt} % Rimuove la linea orizzontale dell'intestazione
-\newpage
 
+\newpage
+\begin{multicols*}{2}
 \section{Introduzione}
 Il presente report si concentra sull'analisi delle soluzioni al problema assegnato, 
 riguardante l'organizzazione di un torneo di calcio a 7. 
@@ -43,7 +77,8 @@ Il problema in questione presenta diverse sfide legate alla suddivisione ottimal
     Viene fornito anche un elenco di vincoli del tipo differentteam (\( p_i, p_j\)) 
     in input che costringono \(p_i\) e \(p_j\) a essere in squadre diverse. 
 \end{quote}
-Il problema affrontato è un \texttt{COP (Constraint Optimization Problem)}. Per risolverlo, sono stati sviluppati due programmi che impiegano due tecniche di programmazione distinte: \textbf{programmazione per vincoli con MiniZinc} e \textbf{Answer Set Programming utilizzando il solver Clingo}.
+Il problema affrontato è un \texttt{COP (Constraint Optimization Problem)}.
+Per risolverlo, sono stati sviluppati due programmi che impiegano due tecniche di programmazione distinte: \textbf{programmazione per vincoli con MiniZinc} e \textbf{Answer Set Programming utilizzando il solver Clingo}.
 \\
 Entrambi gli approcci sono stati selezionati per la loro efficacia nella gestione di problemi complessi e vincolati, sebbene differiscano nelle metodologie e negli strumenti adottati per ottenere la soluzione ottimale. 
 \\
@@ -52,7 +87,7 @@ Inoltre, sarà presentata un'analisi dei risultati ottenuti da ciascun metodo.
 
 \section{Modellazione del problema}
 Prima di iniziare la fase di programmazione, ho proceduto con lo studio e l'analisi del testo. Di seguito riporto alcune assunzioni che ho fatto:
-
+\\
 Le assunzioni fatte per la risoluzione del problema sono le seguenti:
 
 \begin{itemize}
@@ -66,6 +101,75 @@ Le assunzioni fatte per la risoluzione del problema sono le seguenti:
 \end{itemize}
 
 \section{Soluzione Minizinc}
-Nella seguente sezione troverai la spiegazione del modello Minzinc che è stato corutito per risolvere il problema.
+Nella seguente sezione troverai la spiegazione del modello Minzinc che è stato costruito per risolvere il problema.
+
+\subsection{Input}
+
+\begin{lstlisting}[style=minizinc, caption={Esempio di input MiniZinc}, label={lst:minizinc_example}]
+n = 7;
+k = 2;
+roles = [
+    {m, f}, % Ruolo giocatore 1
+    {d, m}, % Ruolo giocatore 2
+    {m, d},
+    {d, g},
+    {d, g},
+    {g, d},
+    {d, g}  % Ruolo giocatore n
+];
+num_pairs = 1;
+player1 = [5];
+player2 = [1];
+\end{lstlisting}
+Nel codice mostrato in \href{#lst:minizinc_example}{Listing \ref{lst:minizinc_example}}, è possibile vedere quali sono i dati che il modello vuole in input. È necessario inserire:
+\begin{itemize}
+    \item Il numero di giocatori \texttt{n}
+    \item Il numero di squadre \texttt{k}
+    \item Il ruolo dei giocatori \texttt{roles}
+    \item Il numero di coppie di giocatori che non possono giocare nella stessa squadra \texttt{num\_pairs}
+    \item \texttt{player1} e \texttt{player2} contengono i giocatori che non possono giocare insieme. I giocatori contenuti in posizioni uguali negli array non possono giocare nella stessa squadra. Per esempio, in {Listing\ref{lst:minizinc_example}}, il giocatore 5 e il giocatore 1 devono giocare in squadre diverse.
+\end{itemize}
+
+\subsection{I vincoli Minizinc}
+Per la corretta modellazione del problema, sono stati definiti diversi \texttt{vincoli} che regolano l'assegnazione dei ruoli ai giocatori all'interno delle squadre, garantendo così il rispetto delle regole del gioco e l'equilibrio tra i team. Di seguito, vengono descritti i principali vincoli implementati:
+
+
+\begin{lstlisting}[style=minizinc, caption={Vincolo 1 Minizinc}, label={lst:minizinc_vincolo}]
+constraint
+forall(t in 1..k) (
+    % Ogni squadra deve avere esattamente un portiere
+    sum([assigned_role[j] == g | j in 1..n where team[j] == t]) == 1 /\
+    % Almeno un difensore
+    sum([assigned_role[j] == d | j in 1..n where team[j] == t]) >= 1 /\
+    % Almeno un centrocampista
+    sum([assigned_role[j] == m | j in 1..n where team[j] == t]) >= 1 /\
+    % Almeno un attaccante
+    sum([assigned_role[j] == f | j in 1..n where team[j] == t]) >= 1
+);
+\end{lstlisting}
+
+\begin{lstlisting}[style=minizinc, caption={Vincolo 2 Minizinc}, label={lst:minizinc_vincolo2}]
+% Ogni giocatore deve essere assegnato a uno dei suoi ruoli scelti
+constraint
+    forall(i in 1..n) (
+        assigned_role[i] in roles[i]
+    );
+\end{lstlisting}
+
+\begin{lstlisting}[style=minizinc, caption={Vincolo 3 Minizinc}, label={lst:minizinc_vincolo3}]
+    constraint
+    forall(i in 1..num_pairs) (
+        team[player1[i]] != team[player2[i]]
+    );
+\end{lstlisting}
+Il \textbf{Vincolo 1} assicura che ogni squadra abbia esattamente un portiere e almeno un giocatore per ciascuna delle altre posizioni chiave: difensore, centrocampista e attaccante. Questo garantisce che ogni team abbia una struttura bilanciata e conforme alle regole del gioco.
+\\
+Il \textbf{Vincolo 2} specifica che ogni giocatore deve essere assegnato a uno dei ruoli per cui è stato selezionato, assicurando che le preferenze e le competenze dei giocatori siano rispettate nella formazione delle squadre.
+\\
+Infine, il \textbf{Vincolo 3} stabilisce che due giocatori predefiniti non devono appartenere alla stessa squadra. Questo vincolo può essere utilizzato, ad esempio, per evitare che due giocatori incompatibili giochino insieme o per distribuire equamente i giocatori più forti tra le squadre.
+\\
+Questi vincoli sono fondamentali per garantire una formazione delle squadre che sia equilibrata e conforme alle regole stabilite, facilitando così un'esperienza di gioco equa e competitiva.
+\end{multicols*}
+
 
 \end{document}
