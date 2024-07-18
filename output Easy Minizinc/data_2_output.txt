@@ -1,14 +1,14 @@
 Input file: data_2.dzn
 Input data:
 n = 7;
-k = 2;
+k = 1;
 roles = [
-{g, m},
+{d, f},
+{f, d},
+{d, m},
+{g, f},
+{d, f},
 {f, m},
-{m, g},
-{g, d},
-{m, g},
-{d, g},
 {g, m}
 ];
 num_pairs = 0;
@@ -16,11 +16,38 @@ player1 = [];
 player2 = [];
 
 Output Gecode:
-Il problema non è soddisfacibile con Gecode.
+Penalties per team:
+1: Penalty 0
+Total penalty: 0
+-------------
+Teams:
+Player 1: Team 1, Role: d
+Player 2: Team 1, Role: d
+Player 3: Team 1, Role: m
+Player 4: Team 1, Role: f
+Player 5: Team 1, Role: d
+Player 6: Team 1, Role: m
+Player 7: Team 1, Role: g
+----------
+==========
 
-Tempo di esecuzione Gecode: 0.23 secondi
+Tempo di esecuzione Gecode: 0.18 secondi
 
 Output Chuffed:
-Il problema non è soddisfacibile con Chuffed.
+Penalties per team:
+1: Penalty 0
+Total penalty: 0
+-------------
+Teams:
+Player 1: Team 1, Role: d
+Player 2: Team 1, Role: d
+Player 3: Team 1, Role: m
+Player 4: Team 1, Role: g
+Player 5: Team 1, Role: f
+Player 6: Team 1, Role: m
+Player 7: Team 1, Role: m
+----------
+==========
+% [<UNKNOWN>]
 
-Tempo di esecuzione Chuffed: 0.17 secondi
+Tempo di esecuzione Chuffed: 0.13 secondi

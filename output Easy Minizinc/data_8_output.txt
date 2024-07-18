@@ -1,74 +1,26 @@
 Input file: data_8.dzn
 Input data:
-n = 14;
-k = 1;
+n = 7;
+k = 2;
 roles = [
+{d, g},
 {f, g},
 {g, m},
-{g, d},
-{d, m},
-{f, d},
-{d, f},
 {g, m},
-{m, d},
-{d, m},
 {f, d},
-{d, g},
-{g, d},
-{d, f},
-{f, m}
+{f, g},
+{m, g}
 ];
-num_pairs = 0;
-player1 = [];
-player2 = [];
+num_pairs = 1;
+player1 = [6];
+player2 = [1];
 
 Output Gecode:
-Penalties per team:
-1: Penalty 1
-Total penalty: 1
--------------
-Teams:
-Player 1: Team 1, Role: f
-Player 2: Team 1, Role: m
-Player 3: Team 1, Role: d
-Player 4: Team 1, Role: d
-Player 5: Team 1, Role: d
-Player 6: Team 1, Role: d
-Player 7: Team 1, Role: m
-Player 8: Team 1, Role: d
-Player 9: Team 1, Role: d
-Player 10: Team 1, Role: d
-Player 11: Team 1, Role: d
-Player 12: Team 1, Role: g
-Player 13: Team 1, Role: d
-Player 14: Team 1, Role: m
-----------
-==========
+Il problema non è soddisfacibile con Gecode.
 
-Tempo di esecuzione Gecode: 0.13 secondi
+Tempo di esecuzione Gecode: 0.17 secondi
 
 Output Chuffed:
-Penalties per team:
-1: Penalty 1
-Total penalty: 1
--------------
-Teams:
-Player 1: Team 1, Role: g
-Player 2: Team 1, Role: m
-Player 3: Team 1, Role: d
-Player 4: Team 1, Role: m
-Player 5: Team 1, Role: f
-Player 6: Team 1, Role: f
-Player 7: Team 1, Role: m
-Player 8: Team 1, Role: m
-Player 9: Team 1, Role: m
-Player 10: Team 1, Role: f
-Player 11: Team 1, Role: d
-Player 12: Team 1, Role: d
-Player 13: Team 1, Role: d
-Player 14: Team 1, Role: f
-----------
-==========
-% [X_INTRODUCED_44_ > 0]
+Il problema non è soddisfacibile con Chuffed.
 
-Tempo di esecuzione Chuffed: 0.13 secondi
+Tempo di esecuzione Chuffed: 0.17 secondi

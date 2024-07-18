@@ -3,13 +3,13 @@ Input data:
 n = 7;
 k = 1;
 roles = [
+{m, f},
+{m, d},
 {d, m},
-{g, m},
-{d, g},
-{m, d},
-{m, d},
-{f, m},
-{f, g}
+{g, d},
+{m, g},
+{d, f},
+{d, g}
 ];
 num_pairs = 0;
 player1 = [];
@@ -21,17 +21,17 @@ Penalties per team:
 Total penalty: 0
 -------------
 Teams:
-Player 1: Team 1, Role: m
+Player 1: Team 1, Role: f
 Player 2: Team 1, Role: m
 Player 3: Team 1, Role: d
 Player 4: Team 1, Role: d
-Player 5: Team 1, Role: d
-Player 6: Team 1, Role: f
+Player 5: Team 1, Role: m
+Player 6: Team 1, Role: d
 Player 7: Team 1, Role: g
 ----------
 ==========
 
-Tempo di esecuzione Gecode: 0.13 secondi
+Tempo di esecuzione Gecode: 0.14 secondi
 
 Output Chuffed:
 Penalties per team:
@@ -39,15 +39,15 @@ Penalties per team:
 Total penalty: 0
 -------------
 Teams:
-Player 1: Team 1, Role: d
+Player 1: Team 1, Role: m
 Player 2: Team 1, Role: m
 Player 3: Team 1, Role: d
-Player 4: Team 1, Role: m
-Player 5: Team 1, Role: m
+Player 4: Team 1, Role: d
+Player 5: Team 1, Role: g
 Player 6: Team 1, Role: f
-Player 7: Team 1, Role: g
+Player 7: Team 1, Role: d
 ----------
 ==========
 % [<UNKNOWN>]
 
-Tempo di esecuzione Chuffed: 0.12 secondi
+Tempo di esecuzione Chuffed: 0.13 secondi

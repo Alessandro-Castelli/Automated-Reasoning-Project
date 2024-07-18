@@ -25,14 +25,14 @@ def generate_instance(instance_id, difficulty):
             num_pairs=0
         folder = EASY_FOLDER
     elif difficulty == 'medio':
-        n = random.randint(21, 35) // 7 * 7  
+        n = random.randint(14, 21) // 7 * 7  
         num_pairs = random.randint(1, 3)
         k = random.randint(2, 3)
         folder = MEDIUM_FOLDER
     elif difficulty == 'difficile':
-        n = random.randint(35, 70) // 7 * 7
+        n = random.randint(21, 28) // 7 * 7
         num_pairs = random.randint(1, 5)
-        k = random.randint(1, 5)
+        k = random.randint(2,4)
         folder = HARD_FOLDER
     
     roles = []

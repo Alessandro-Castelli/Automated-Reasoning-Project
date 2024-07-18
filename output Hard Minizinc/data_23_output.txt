@@ -1,0 +1,73 @@
+Input file: data_23.dzn
+Input data:
+n = 21;
+k = 4;
+roles = [
+{m, g},
+{g, f},
+{d, f},
+{f, m},
+{f, m},
+{g, d},
+{d, m},
+{m, f},
+{m, g},
+{m, f},
+{f, d},
+{f, m},
+{m, f},
+{m, g},
+{f, m},
+{f, g},
+{f, d},
+{g, f},
+{f, m},
+{f, d},
+{g, d}
+];
+num_pairs = 1;
+player1 = [7];
+player2 = [15];
+
+Output Gecode:
+=====UNKNOWN=====
+
+Tempo di esecuzione Gecode: 300.10 secondi
+
+Output Chuffed:
+Penalties per team:
+1: Penalty 1
+2: Penalty 0
+3: Penalty 1
+4: Penalty 1
+Total penalty: 3
+-------------
+Teams:
+Player 1: Team 4, Role: g
+Player 2: Team 3, Role: g
+Player 3: Team 2, Role: d
+Player 4: Team 4, Role: f
+Player 5: Team 4, Role: f
+Player 6: Team 2, Role: d
+Player 7: Team 3, Role: d
+Player 8: Team 2, Role: m
+Player 9: Team 3, Role: m
+Player 10: Team 1, Role: f
+Player 11: Team 1, Role: d
+Player 12: Team 1, Role: m
+Player 13: Team 2, Role: m
+Player 14: Team 1, Role: g
+Player 15: Team 4, Role: m
+Player 16: Team 2, Role: f
+Player 17: Team 4, Role: d
+Player 18: Team 3, Role: f
+Player 19: Team 4, Role: f
+Player 20: Team 2, Role: d
+Player 21: Team 2, Role: g
+----------
+% Time limit exceeded!
+
+Tempo di esecuzione Chuffed: 300.16 secondi
+
+Errors Chuffed:
+WARNING: the --time-out flag has recently been changed.The time-out is now provided in milliseconds instead of seconds

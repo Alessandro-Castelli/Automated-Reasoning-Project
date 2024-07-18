@@ -11,6 +11,8 @@
 \usepackage{xcolor}
 \usepackage{geometry}
 \usepackage{multicol}
+\usepackage{float}
+\usepackage{caption}
 
 
 \geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
@@ -50,6 +52,7 @@
 \maketitle
 \thispagestyle{empty}  
 \newpage
+\captionsetup[table]{skip=10pt} 
 \tableofcontents
 \setcounter{page}{1}
 \pagenumbering{arabic} % Numerazione in numeri arabi
@@ -200,14 +203,63 @@ constraint
 \end{lstlisting}
 
 \subsection{Obiettivo e risultati}
-L'obiettivo del programma è trovare la soluzione migliore che minimizzi le penalità (Listing \ref{lst:obb})
 
-\begin{lstlisting}[style=minizinc, caption={Obiettivo}, label={lst:obb}]
-    solve minimize total_penalty;
+L'obiettivo del programma è trovare la soluzione che minimizzi le penalità (vedi Listing \ref{lst:obb}).
+
+\begin{lstlisting}[style=minizinc, caption={Obiettivo del problema}, label={lst:obb}]
+solve minimize total_penalty;
 \end{lstlisting}
+Per valutare le performance del modello, sono stati creati tre gruppi di test: 10 istanze facili, 10 di difficoltà media e 10 difficili. Ogni risultato è stato registrato e confrontato per analizzare l'efficacia dell'algoritmo.
+\\
+I file di input e output relativi sono inclusi nel progetto e sono disponibili per consultazione.
+\\
+Nella Tabella \ref{tab:minizinc} sono riportati i dettagli delle istanze e i loro risultati. 
+
+
+\begin{table}[H]
+    \centering
+    \caption{Performance Minizinc delle istanze facili}
+    \label{tab:minizinc}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Livello} & \textbf{n} & \textbf{k} & \textbf{Gecode (s)} & \textbf{Chuffed (s)} \\
+        \hline
+        Facile 1 & 7 & 2 & 0.59 & 0.16 \\
+        Facile 2 & 7 & 1 & 0.18 & 0.13 \\
+        Facile 3 & 7 & 2 & 0.28 & 0.17 \\
+        Facile 4 & 7 & 2 & 0.23 & 0.18 \\
+        Facile 5 & 7 & 1 & 0.14 & 0.13 \\
+        Facile 6 & 7 & 2 & 0.31 & 0.18 \\
+        Facile 7 & 7 & 1 & 0.16 & 0.13 \\
+        Facile 8 & 7 & 2 & 0.17 & 0.17 \\
+        Facile 9 & 7 & 2 & 0.47 & 0.17 \\
+        Facile 10 & 7 & 2 & 0.18 & 0.19 \\
+        Medio 1 & 14 & 3 & TIMEOUT & 1.77 \\
+        Medio 2 & 14 & 3 & TIMEOUT & 3.12 \\
+        Medio 3 & 21 & 2 & 15.22 & 0.82 \\
+        Medio 4 & 14 & 3 & TIMEOUT & 0.27\\
+        Medio 5 & 21 & 3 & 2.15 & 0.34 \\
+        Medio 6 & 21 & 3 & 23.8 & 0.37 \\
+        Medio 7 & 14 & 3 & TIMEOUT & 0.44 \\
+        Medio 8 & 14 & 3 & TIMEOUT & 1.18 \\
+        Medio 9 & 14 & 3 & TIMEOUT & 1.96 \\
+        Medio 10 & 14 & 3 & TIMEOUT & 1.96 \\
+        Difficile 1 \\
+        Difficile 2 \\
+        Difficile 3 \\
+        Difficile 4 \\
+        Difficile 5 \\
+        Difficile 6 \\
+        Difficile 7 \\
+        Difficile 8 \\
+        Difficile 9 \\
+        Difficile 10 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+
+
 \end{multicols*}
-
-Per misurare le perfromance del modello ho creato una batteria di test: 10 facili, 10 di difficoltà media e 10 difficili.
-
-
 \end{document}

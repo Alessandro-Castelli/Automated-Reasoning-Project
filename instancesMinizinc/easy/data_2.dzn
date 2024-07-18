@@ -1,12 +1,12 @@
 n = 7;
-k = 2;
+k = 1;
 roles = [
-{g, m},
+{d, f},
+{f, d},
+{d, m},
+{g, f},
+{d, f},
 {f, m},
-{m, g},
-{g, d},
-{m, g},
-{d, g},
 {g, m}
 ];
 num_pairs = 0;

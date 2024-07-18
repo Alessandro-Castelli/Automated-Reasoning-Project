@@ -3,17 +3,17 @@ Input data:
 n = 7;
 k = 2;
 roles = [
-{m, f},
+{m, g},
 {d, m},
-{m, d},
+{f, g},
+{d, m},
+{g, m},
 {d, g},
-{d, g},
-{g, d},
-{d, g}
+{m, g}
 ];
 num_pairs = 1;
-player1 = [5];
-player2 = [1];
+player1 = [4];
+player2 = [7];
 
 Output Gecode:
 Il problema non è soddisfacibile con Gecode.
@@ -23,4 +23,4 @@ Tempo di esecuzione Gecode: 0.18 secondi
 Output Chuffed:
 Il problema non è soddisfacibile con Chuffed.
 
-Tempo di esecuzione Chuffed: 0.16 secondi
+Tempo di esecuzione Chuffed: 0.19 secondi
