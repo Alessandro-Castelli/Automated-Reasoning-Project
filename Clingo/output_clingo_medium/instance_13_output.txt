@@ -1,0 +1,40 @@
+Input file: instance_13.lp
+Input data:
+num_squadre(2).
+player(1, portiere, attaccante).
+player(2, portiere, attaccante).
+player(3, difensore, centrocampista).
+player(4, portiere, difensore).
+player(5, attaccante, difensore).
+player(6, attaccante, portiere).
+player(7, difensore, centrocampista).
+player(8, difensore, attaccante).
+player(9, difensore, portiere).
+player(10, difensore, portiere).
+player(11, portiere, centrocampista).
+player(12, portiere, attaccante).
+player(13, portiere, difensore).
+player(14, difensore, attaccante).
+different_team(1, 2).
+different_team(7, 10).
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,2,portiere) assigned(2,1,attaccante) assigned(3,2,centrocampista) assigned(4,2,difensore) assigned(5,2,attaccante) assigned(6,2,attaccante) assigned(7,1,centrocampista) assigned(8,2,attaccante) assigned(9,1,difensore) assigned(10,2,difensore) assigned(11,1,portiere) assigned(12,2,attaccante) assigned(13,1,difensore) assigned(14,2,attaccante) total_penalty(1)
+Optimization: 1
+Answer: 1
+assigned(1,2,portiere) assigned(2,1,attaccante) assigned(3,1,centrocampista) assigned(4,1,portiere) assigned(5,1,difensore) assigned(6,2,attaccante) assigned(7,2,difensore) assigned(8,1,attaccante) assigned(9,2,difensore) assigned(10,1,difensore) assigned(11,2,centrocampista) assigned(12,2,attaccante) assigned(13,2,difensore) assigned(14,1,difensore) total_penalty(1)
+Optimization: 1
+OPTIMUM FOUND
+
+Models       : 2+
+  Optimum    : yes
+Optimization : 1
+Calls        : 1
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.000s
+
+Tempo di esecuzione Clingo: 0.02 secondi

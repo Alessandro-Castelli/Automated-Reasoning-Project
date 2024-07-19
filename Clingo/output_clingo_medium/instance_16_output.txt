@@ -1,0 +1,43 @@
+Input file: instance_16.lp
+Input data:
+num_squadre(2).
+player(1, portiere, attaccante).
+player(2, portiere, difensore).
+player(3, difensore, portiere).
+player(4, difensore, portiere).
+player(5, attaccante, difensore).
+player(6, portiere, centrocampista).
+player(7, centrocampista, attaccante).
+player(8, portiere, attaccante).
+player(9, difensore, centrocampista).
+player(10, attaccante, portiere).
+player(11, centrocampista, attaccante).
+player(12, attaccante, centrocampista).
+player(13, attaccante, centrocampista).
+player(14, difensore, centrocampista).
+different_team(1, 2).
+
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,2,portiere) assigned(2,1,portiere) assigned(3,2,difensore) assigned(4,1,difensore) assigned(5,2,difensore) assigned(6,1,centrocampista) assigned(7,2,centrocampista) assigned(8,2,attaccante) assigned(9,1,difensore) assigned(10,1,attaccante) assigned(11,2,centrocampista) assigned(12,2,centrocampista) assigned(13,1,centrocampista) assigned(14,2,centrocampista) total_penalty(1)
+Optimization: 1
+Answer: 2
+assigned(1,2,attaccante) assigned(2,1,difensore) assigned(3,1,difensore) assigned(4,2,difensore) assigned(5,2,difensore) assigned(6,2,centrocampista) assigned(7,1,attaccante) assigned(8,1,portiere) assigned(9,1,centrocampista) assigned(10,2,portiere) assigned(11,1,centrocampista) assigned(12,1,centrocampista) assigned(13,2,centrocampista) assigned(14,2,centrocampista) total_penalty(0)
+Optimization: 0
+Answer: 1
+assigned(1,2,attaccante) assigned(2,1,difensore) assigned(3,2,difensore) assigned(4,2,difensore) assigned(5,1,difensore) assigned(6,2,centrocampista) assigned(7,1,attaccante) assigned(8,1,portiere) assigned(9,1,centrocampista) assigned(10,2,portiere) assigned(11,1,centrocampista) assigned(12,1,centrocampista) assigned(13,2,centrocampista) assigned(14,2,centrocampista) total_penalty(0)
+Optimization: 0
+OPTIMUM FOUND
+
+Models       : 3+
+  Optimum    : yes
+Optimization : 0
+Calls        : 1
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.000s
+
+Tempo di esecuzione Clingo: 0.02 secondi

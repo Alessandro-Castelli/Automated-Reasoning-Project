@@ -1,0 +1,45 @@
+Input file: instance_5.lp
+Input data:
+num_squadre(1).
+player(1, attaccante, centrocampista).
+player(2, attaccante, portiere).
+player(3, attaccante, difensore).
+player(4, portiere, difensore).
+player(5, portiere, difensore).
+player(6, centrocampista, attaccante).
+player(7, attaccante, portiere).
+player(8, difensore, portiere).
+player(9, attaccante, centrocampista).
+player(10, centrocampista, difensore).
+player(11, attaccante, portiere).
+player(12, portiere, attaccante).
+player(13, attaccante, difensore).
+player(14, centrocampista, difensore).
+
+
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,1,centrocampista) assigned(2,1,portiere) assigned(3,1,difensore) assigned(4,1,difensore) assigned(5,1,difensore) assigned(6,1,centrocampista) assigned(7,1,attaccante) assigned(8,1,difensore) assigned(9,1,centrocampista) assigned(10,1,centrocampista) assigned(11,1,attaccante) assigned(12,1,attaccante) assigned(13,1,difensore) assigned(14,1,centrocampista) total_penalty(1)
+Optimization: 1
+Answer: 1
+assigned(1,1,centrocampista) assigned(2,1,attaccante) assigned(3,1,difensore) assigned(4,1,difensore) assigned(5,1,difensore) assigned(6,1,centrocampista) assigned(7,1,attaccante) assigned(8,1,difensore) assigned(9,1,centrocampista) assigned(10,1,difensore) assigned(11,1,attaccante) assigned(12,1,portiere) assigned(13,1,difensore) assigned(14,1,difensore) total_penalty(1)
+Optimization: 1
+OPTIMUM FOUND
+
+Models       : 2+
+  Optimum    : yes
+Optimization : 1
+Calls        : 1
+Time         : 0.004s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.000s
+
+Tempo di esecuzione Clingo: 0.02 secondi
+
+Errors Clingo:
+C:\Users\ales2\Desktop\AR Project\Automated-Reasoning-Project\Clingo\implASP.lp:22:4-26: info: atom does not occur in any rule head:
+  different_team(P1,P2)
+
