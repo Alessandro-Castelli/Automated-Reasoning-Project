@@ -1,28 +1,42 @@
-n = 21;
-k = 4;
+n = 35;
+k = 3;
 roles = [
-{f, m},
-{m, g},
 {m, d},
-{g, f},
-{g, d},
 {m, d},
+{d, g},
 {f, m},
 {f, g},
-{m, d},
-{g, d},
-{m, d},
-{g, d},
-{m, f},
-{m, d},
-{d, m},
+{m, g},
+{f, g},
+{f, m},
+{d, g},
 {d, f},
-{g, f},
+{d, f},
+{f, m},
+{d, m},
 {m, f},
-{m, f},
+{f, m},
+{g, d},
 {f, d},
-{d, m}
+{g, d},
+{d, f},
+{m, f},
+{d, f},
+{f, g},
+{m, g},
+{d, m},
+{f, m},
+{g, f},
+{d, m},
+{m, f},
+{g, d},
+{f, d},
+{g, f},
+{m, g},
+{g, d},
+{d, f},
+{d, f}
 ];
-num_pairs = 2;
-player1 = [9, 10];
-player2 = [20, 5];
+num_pairs = 1;
+player1 = [15];
+player2 = [30];

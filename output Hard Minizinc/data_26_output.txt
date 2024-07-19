@@ -1,102 +1,88 @@
 Input file: data_26.dzn
 Input data:
-n = 21;
-k = 3;
+n = 28;
+k = 4;
 roles = [
-{f, g},
-{m, g},
+{m, d},
 {d, f},
-{g, m},
-{d, g},
 {g, f},
-{d, g},
-{m, g},
-{d, g},
+{d, f},
 {f, m},
-{d, g},
+{d, m},
 {m, f},
 {m, g},
-{g, d},
-{g, d},
 {d, m},
-{g, d},
-{d, m},
+{d, g},
 {m, g},
 {g, f},
-{m, d}
+{f, d},
+{f, g},
+{m, f},
+{g, m},
+{m, g},
+{f, m},
+{m, d},
+{m, g},
+{g, d},
+{g, f},
+{m, d},
+{f, m},
+{d, m},
+{g, m},
+{g, d},
+{f, m}
 ];
-num_pairs = 2;
-player1 = [18, 5];
-player2 = [3, 8];
+num_pairs = 3;
+player1 = [2, 5, 6];
+player2 = [24, 21, 14];
 
 Output Gecode:
-Penalties per team:
-1: Penalty 0
-2: Penalty 0
-3: Penalty 0
-Total penalty: 0
--------------
-Teams:
-Player 1: Team 3, Role: f
-Player 2: Team 3, Role: m
-Player 3: Team 2, Role: f
-Player 4: Team 3, Role: m
-Player 5: Team 3, Role: d
-Player 6: Team 1, Role: f
-Player 7: Team 3, Role: d
-Player 8: Team 1, Role: m
-Player 9: Team 3, Role: d
-Player 10: Team 2, Role: m
-Player 11: Team 2, Role: d
-Player 12: Team 2, Role: m
-Player 13: Team 1, Role: m
-Player 14: Team 2, Role: d
-Player 15: Team 2, Role: d
-Player 16: Team 1, Role: d
-Player 17: Team 3, Role: g
-Player 18: Team 1, Role: d
-Player 19: Team 2, Role: g
-Player 20: Team 1, Role: g
-Player 21: Team 1, Role: d
-----------
-==========
+=====UNKNOWN=====
 
-Tempo di esecuzione Gecode: 13.62 secondi
+Tempo di esecuzione Gecode: 300.12 secondi
 
 Output Chuffed:
 Penalties per team:
 1: Penalty 0
 2: Penalty 0
 3: Penalty 0
+4: Penalty 0
 Total penalty: 0
 -------------
 Teams:
-Player 1: Team 3, Role: g
-Player 2: Team 2, Role: m
-Player 3: Team 1, Role: d
-Player 4: Team 3, Role: m
-Player 5: Team 3, Role: d
-Player 6: Team 1, Role: f
-Player 7: Team 2, Role: d
-Player 8: Team 2, Role: m
-Player 9: Team 2, Role: g
-Player 10: Team 3, Role: f
-Player 11: Team 3, Role: d
-Player 12: Team 1, Role: m
-Player 13: Team 2, Role: m
-Player 14: Team 1, Role: d
-Player 15: Team 1, Role: g
-Player 16: Team 1, Role: m
-Player 17: Team 2, Role: d
-Player 18: Team 3, Role: m
-Player 19: Team 1, Role: m
-Player 20: Team 2, Role: f
-Player 21: Team 3, Role: m
+Player 1: Team 1, Role: d
+Player 2: Team 1, Role: d
+Player 3: Team 3, Role: g
+Player 4: Team 3, Role: d
+Player 5: Team 2, Role: m
+Player 6: Team 2, Role: d
+Player 7: Team 4, Role: m
+Player 8: Team 4, Role: g
+Player 9: Team 3, Role: m
+Player 10: Team 4, Role: d
+Player 11: Team 3, Role: m
+Player 12: Team 2, Role: f
+Player 13: Team 3, Role: d
+Player 14: Team 1, Role: g
+Player 15: Team 4, Role: m
+Player 16: Team 4, Role: m
+Player 17: Team 1, Role: m
+Player 18: Team 2, Role: m
+Player 19: Team 2, Role: d
+Player 20: Team 1, Role: m
+Player 21: Team 4, Role: d
+Player 22: Team 4, Role: f
+Player 23: Team 2, Role: d
+Player 24: Team 3, Role: f
+Player 25: Team 3, Role: m
+Player 26: Team 1, Role: m
+Player 27: Team 2, Role: g
+Player 28: Team 1, Role: f
 ----------
 ==========
 % [<UNKNOWN>]
 
-Tempo di esecuzione Chuffed: 0.28 secondi
+Tempo di esecuzione Chuffed: 30.36 secondi
 
 Errors Chuffed:
 WARNING: the --time-out flag has recently been changed.The time-out is now provided in milliseconds instead of seconds

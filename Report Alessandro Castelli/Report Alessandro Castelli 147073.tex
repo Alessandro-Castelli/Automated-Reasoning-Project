@@ -44,6 +44,7 @@
     urlcolor=blue
 }
 \begin{document}
+% chktex-file 44
 
 \title{Report Automated Reasoning} 
 \author{Alessandro Castelli \and (147073)} 
@@ -204,22 +205,52 @@ constraint
 
 \subsection{Obiettivo e risultati}
 
-L'obiettivo del programma è trovare la soluzione che minimizzi le penalità (vedi Listing \ref{lst:obb}).
+L'obiettivo del programma è trovare la soluzione che minimizzi le penalità (vedi Listing~\ref{lst:obb}).
 
 \begin{lstlisting}[style=minizinc, caption={Obiettivo del problema}, label={lst:obb}]
 solve minimize total_penalty;
 \end{lstlisting}
-Per valutare le performance del modello, sono stati creati tre gruppi di test: 10 istanze facili, 10 di difficoltà media e 10 difficili. Ogni risultato è stato registrato e confrontato per analizzare l'efficacia dell'algoritmo.
-\\
-I file di input e output relativi sono inclusi nel progetto e sono disponibili per consultazione.
-\\
-Nella Tabella \ref{tab:minizinc} sono riportati i dettagli delle istanze e i loro risultati. 
+Per valutare le performance del modello implementato, 
+sono stati creati tre gruppi di test con livelli di difficoltà differenti: facile, medio e difficile. 
+Ogni gruppo è composto da 10 istanze, ciascuna delle quali è stata generata in modo casuale, includendo variabili come il numero di giocatori, il numero di squadre, i ruoli dei giocatori e l'assegnazione dei giocatori a squadre diverse.
+I risultati dei test sono stati registrati e confrontati per analizzare l'efficacia dell'algoritmo utilizzato. 
+I file di input e output relativi sono inclusi nel progetto e disponibili per consultazione.
 
+\subsection{Struttura dei Test}
+
+\begin{itemize}
+    \item \textbf{Facile}: 10 istanze con parametri relativamente semplici.
+    \item \textbf{Medio}: 10 istanze con parametri di difficoltà intermedia.
+    \item \textbf{Difficile}: 10 istanze con parametri complessi.
+\end{itemize}
+
+\subsection{Metodologia}
+
+Per ciascuna istanza sono stati utilizzati due solver: Gecode e Chuffed. Il tempo massimo di esecuzione (timeout) per ogni istanza è stato impostato a 5 minuti. Se un solver non riesce a trovare una soluzione entro questo tempo, viene segnato come \textit{TIMEOUT}.
+
+\subsection{Risultati}
+I risultati ottenuti sono riportati nella Tabella~\ref{tab:minizinc}, che mostra il tempo di esecuzione in secondi per ogni istanza risolta dai solver Gecode e Chuffed.
+\\
+Come è possibile vedere dai riusltati il sover Chuffed giugnge a conclusione molto più velocemnete del solver Gecode.
+\\
+\texttt{TIMEOUT} vuol dire che ha superato la soglia massima di tempo che è stata impostata a 5 minuti.
+
+\subsection{Analisi dei Risultati}
+Come si può osservare dalla Tabella~\ref{tab:minizinc}, il solver Chuffed riesce a concludere i calcoli in tempi significativamente più brevi rispetto al solver Gecode in tutte le istanze. In particolare:
+
+\begin{itemize}
+    \item \textbf{Istanze Facili}: Entrambi i solver completano tutte le istanze entro il tempo limite, ma Chuffed risolve le istanze con tempi generalmente inferiori rispetto a Gecode.
+    \item \textbf{Istanze Medie}: Gecode fallisce (\textit{TIMEOUT}) in molte delle istanze, mentre Chuffed riesce a completare tutte le istanze entro il tempo limite.
+    \item \textbf{Istanze Difficili}: Gecode non riesce a completare la maggior parte delle istanze entro il tempo limite, mentre Chuffed riesce a risolvere alcune istanze ma fallisce (\textit{TIMEOUT}) nelle più complesse.
+\end{itemize}
+Si può osservare che, talvolta, istanze simili in \texttt{n} e \texttt{k} presentano tempi di esecuzione differenti. Questo avviene perché variano i ruoli dei giocatori e le assegnazioni dei giocatori a squadre diverse.
+
+\subsection{Conclusioni}
+L'analisi dei tempi di esecuzione dimostra che il solver Chuffed è significativamente più efficiente rispetto a Gecode, specialmente in situazioni di maggiore complessità. Questo suggerisce che Chuffed potrebbe essere una scelta più appropriata per applicazioni che richiedono la risoluzione di problemi complessi in tempi brevi.
 
 \begin{table}[H]
     \centering
-    \caption{Performance Minizinc delle istanze facili}
-    \label{tab:minizinc}
+    \caption{Performance Minizinc}\label{tab:minizinc}
     \begin{tabular}{|c|c|c|c|c|}
         \hline
         \textbf{Livello} & \textbf{n} & \textbf{k} & \textbf{Gecode (s)} & \textbf{Chuffed (s)} \\
@@ -234,32 +265,30 @@ Nella Tabella \ref{tab:minizinc} sono riportati i dettagli delle istanze e i lor
         Facile 8 & 7 & 2 & 0.17 & 0.17 \\
         Facile 9 & 7 & 2 & 0.47 & 0.17 \\
         Facile 10 & 7 & 2 & 0.18 & 0.19 \\
+        \hline
         Medio 1 & 14 & 3 & TIMEOUT & 1.77 \\
         Medio 2 & 14 & 3 & TIMEOUT & 3.12 \\
         Medio 3 & 21 & 2 & 15.22 & 0.82 \\
-        Medio 4 & 14 & 3 & TIMEOUT & 0.27\\
+        Medio 4 & 14 & 3 & TIMEOUT & 0.27 \\
         Medio 5 & 21 & 3 & 2.15 & 0.34 \\
         Medio 6 & 21 & 3 & 23.8 & 0.37 \\
         Medio 7 & 14 & 3 & TIMEOUT & 0.44 \\
         Medio 8 & 14 & 3 & TIMEOUT & 1.18 \\
         Medio 9 & 14 & 3 & TIMEOUT & 1.96 \\
         Medio 10 & 14 & 3 & TIMEOUT & 1.96 \\
-        Difficile 1 \\
-        Difficile 2 \\
-        Difficile 3 \\
-        Difficile 4 \\
-        Difficile 5 \\
-        Difficile 6 \\
-        Difficile 7 \\
-        Difficile 8 \\
-        Difficile 9 \\
-        Difficile 10 \\
+        \hline
+        Difficile 1 & 28 & 2 & 83.84 & 0.53 \\
+        Difficile 2 & 28 & 3 & TIMEOUT & 15.71 \\
+        Difficile 3 & 28 & 4 & TIMEOUT & 1.27 \\
+        Difficile 4 & 28 & 4 & TIMEOUT & 10.02 \\
+        Difficile 5 & 28 & 2 & TIMEOUT & 0.55 \\
+        Difficile 6 & 28 & 4 & TIMEOUT & 30.36 \\
+        Difficile 7 & 28 & 3 & TIMEOUT & TIMEOUT \\
+        Difficile 8 & 35 & 3 & TIMEOUT & 13.43 \\
+        Difficile 9 & 28 & 4 & TIMEOUT & TIMEOUT \\
+        Difficile 10 & 28 & 4 & TIMEOUT & TIMEOUT \\
         \hline
     \end{tabular}
 \end{table}
-
-
-
-
 \end{multicols*}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.13)  18 JUL 2024 22:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.12.13)  19 JUL 2024 14:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -479,11 +479,11 @@ Package hyperref Info: Link coloring ON on input line 46.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 54.
 (C:\Users\ales2\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 54.
  (C:\Users\ales2\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -496,44 +496,44 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 \newpage
+l.65 \newpage
               [1]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 83.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 84.
  (C:\Users\ales2\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 83.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 84.
  (C:\Users\ales2\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 111.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 112.
  [2]
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 142.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 143.
  [3] [4] (Report Alessandro Castelli 147073.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-08>
  ***********
 Package rerunfilecheck Info: File `"Report Alessandro Castelli 147073".out' has not changed.
-(rerunfilecheck)             Checksum: D779D0C13BE197BF317B236CC6F0C3B2;1138.
+(rerunfilecheck)             Checksum: 5C45D74016442095C018A7D87EB3B185;1789.
  ) 
 Here is how much of TeX's memory you used:
- 14431 strings out of 474491
- 219269 string characters out of 5754620
+ 14443 strings out of 474491
+ 219441 string characters out of 5754620
  2191473 words of memory out of 5000000
- 36464 multiletter control sequences out of 15000+600000
- 570764 words of font info for 72 fonts, out of 8000000 for 9000
+ 36470 multiletter control sequences out of 15000+600000
+ 571450 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,11n,79p,600b,1450s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{lst:minizinc_example} has been referenced but does not exist, replaced by a fixed one
 
- <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/ales2/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ales2/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ales2/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-Output written on "Report Alessandro Castelli 147073.pdf" (5 pages, 148569 bytes).
+ <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\ales2\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/ales2/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ales2/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ales2/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb>
+Output written on "Report Alessandro Castelli 147073.pdf" (5 pages, 164548 bytes).
 PDF statistics:
- 473 PDF objects out of 1000 (max. 8388607)
- 73 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 530 PDF objects out of 1000 (max. 8388607)
+ 78 named destinations out of 1000 (max. 500000)
+ 105 words of extra memory for PDF output out of 10000 (max. 10000000)
 

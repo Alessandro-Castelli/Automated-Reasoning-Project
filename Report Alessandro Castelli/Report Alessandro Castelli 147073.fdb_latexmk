@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1721333339 "c:/Users/ales2/Desktop/AR Project/Automated-Reasoning-Project/Report Alessandro Castelli/Report Alessandro Castelli 147073.tex" "Report Alessandro Castelli 147073.pdf" "Report Alessandro Castelli 147073" 1721333340 0
+["pdflatex"] 1721393008 "c:/Users/ales2/Desktop/AR Project/Automated-Reasoning-Project/Report Alessandro Castelli/Report Alessandro Castelli 147073.tex" "Report Alessandro Castelli 147073.pdf" "Report Alessandro Castelli 147073" 1721393009 0
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1721296641 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1704907492 25420 875e96b27fa2e7d67a1eff614dcb4c18 ""
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1687623208 31952 d29b10068fe03ecaf4adc35529022045 ""
@@ -7,6 +7,7 @@
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1000.pk" 1704904403 23808 86579cca5f7dca6b6488fc0a93cbb4bc ""
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1200.pk" 1687611106 28440 f961c716bec7e45cb1d3c08b94f7c734 ""
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1728.pk" 1720709475 42516 004f78b0ec960df3c28a85a14f68b479 ""
+  "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecti1000.pk" 1721319039 31892 d2b23aa41aa2e6c35897c0f2ed583934 ""
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt0900.pk" 1721233449 17512 b0130fc4b13077dcd85a2d7840efb45e ""
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ectt1000.pk" 1706129735 20028 162e76d19351e9b852cf698ec24cfeba ""
   "C:/Users/ales2/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1721048821 11548 8c3e5cf798090d9e758d9a98bd7722b9 ""
@@ -18,6 +19,7 @@
   "C:/Users/ales2/MiKTeX/fonts/tfm/jknappen/ec/ecrm1200.tfm" 993062126 3152 4850ff0163852b7fab34bd55e1197f28 ""
   "C:/Users/ales2/MiKTeX/fonts/tfm/jknappen/ec/ecrm1440.tfm" 993062128 3168 3bd7b08ba4330af81521911744311212 ""
   "C:/Users/ales2/MiKTeX/fonts/tfm/jknappen/ec/ecrm1728.tfm" 993062128 3168 11457c8185ce67fb79662ba8b03d6db1 ""
+  "C:/Users/ales2/MiKTeX/fonts/tfm/jknappen/ec/ecti1000.tfm" 993062320 2840 5606e1a681c23005308de9d61c09a8ff ""
   "C:/Users/ales2/MiKTeX/fonts/tfm/jknappen/ec/ectt0900.tfm" 993062338 1348 c9911882a95d2c1b82f0cccb2c651de8 ""
   "C:/Users/ales2/MiKTeX/fonts/tfm/jknappen/ec/ectt1000.tfm" 993062340 1348 d70ddf2d5d512b838e50a335e385e919 ""
   "C:/Users/ales2/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
@@ -111,11 +113,11 @@
   "C:/Users/ales2/MiKTeX/tex/latex/tools/multicol.sty" 1700603495 32515 51caec75eda9c8890135f12f1a4eddc3 ""
   "C:/Users/ales2/MiKTeX/tex/latex/url/url.sty" 1388494052 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/ales2/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700131122 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "Report Alessandro Castelli 147073.aux" 1721333340 2705 ceeb76e284777c54aa572249ec43d8a3 "pdflatex"
-  "Report Alessandro Castelli 147073.out" 1721333340 1138 d779d0c13be197bf317b236cc6f0c3b2 "pdflatex"
-  "Report Alessandro Castelli 147073.tex" 1721333338 13083 24deaa0ef5b9cf4b23c2b1c3a8c45e6d ""
-  "Report Alessandro Castelli 147073.toc" 1721333340 636 9ed3c0c201447bb7a18e4f467413bce3 "pdflatex"
-  "c:/Users/ales2/Desktop/AR Project/Automated-Reasoning-Project/Report Alessandro Castelli/Report Alessandro Castelli 147073.tex" 1721333338 13083 24deaa0ef5b9cf4b23c2b1c3a8c45e6d ""
+  "Report Alessandro Castelli 147073.aux" 1721393009 3268 4fb6d25e415d06d0b2ce970192f77d79 "pdflatex"
+  "Report Alessandro Castelli 147073.out" 1721393009 1789 5c45d74016442095c018a7d87eb3b185 "pdflatex"
+  "Report Alessandro Castelli 147073.tex" 1721393007 16012 3ccac28cf4e89daddc94d356a8cef2fc ""
+  "Report Alessandro Castelli 147073.toc" 1721393009 1036 dd68d6bdabaa3109d0d5fb504230d3d4 "pdflatex"
+  "c:/Users/ales2/Desktop/AR Project/Automated-Reasoning-Project/Report Alessandro Castelli/Report Alessandro Castelli 147073.tex" 1721393007 16012 3ccac28cf4e89daddc94d356a8cef2fc ""
   (generated)
   "Report Alessandro Castelli 147073.aux"
   "Report Alessandro Castelli 147073.log"
