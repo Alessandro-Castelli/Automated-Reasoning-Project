@@ -13,15 +13,22 @@
 \usepackage{multicol}
 \usepackage{float}
 \usepackage{caption}
+\usepackage{adjustbox}
 
 
 \geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
 
 \setlength{\columnsep}{1cm} % Imposta lo spazio tra le colonne
 
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+}
+
 % Definizione dello stile per MiniZinc
 \lstdefinestyle{minizinc}{
-    language=Python,  % Utilizziamo Python per la sintassi
+    language=Prolog,  % Utilizziamo Python per la sintassi
     backgroundcolor=\color{white}, % Colore di sfondo
     basicstyle=\ttfamily\small,    % Font monospaziato
     keywordstyle=\color{blue}\bfseries, % Parole chiave in blu
@@ -35,6 +42,8 @@
     captionpos=b,                   % Posizione della didascalia
     frame=none
 }
+
+
 % Configurazione del pacchetto hyperref
 \hypersetup{
     colorlinks=true,
@@ -245,8 +254,6 @@ Come si può osservare dalla Tabella~\ref{tab:minizinc}, il solver Chuffed riesc
 \end{itemize}
 Si può osservare che, talvolta, istanze simili in \texttt{n} e \texttt{k} presentano tempi di esecuzione differenti. Questo avviene perché variano i ruoli dei giocatori e le assegnazioni dei giocatori a squadre diverse.
 
-\subsection{Conclusioni}
-L'analisi dei tempi di esecuzione dimostra che il solver Chuffed è significativamente più efficiente rispetto a Gecode, specialmente in situazioni di maggiore complessità. Questo suggerisce che Chuffed potrebbe essere una scelta più appropriata per applicazioni che richiedono la risoluzione di problemi complessi in tempi brevi.
 
 \begin{table}[H]
     \centering
@@ -290,5 +297,156 @@ L'analisi dei tempi di esecuzione dimostra che il solver Chuffed è significativ
         \hline
     \end{tabular}
 \end{table}
+
+\section{ASP}
+
+In questa sezione verrà spiegato come risolvere il problema di ottimizzazione vincolata (COP) utilizzando il risolutore ASP Clingo.
+
+\subsection{Input}
+
+Come si può osservare nel Listing \ref{lst:aspInput}, i file di input per Clingo presentano una struttura simile a quella dei file MiniZinc, ma sono adattati alla sintassi specifica della programmazione logica. Le differenze risiedono principalmente nei paradigmi di programmazione utilizzati, che richiedono una modifica della sintassi per soddisfare i requisiti di Clingo.
+
+\begin{lstlisting}[style=minizinc, caption={ASP Input}, label={lst:aspInput}]
+num_squadre(2).
+player(1, difensore, portiere).
+player(2, difensore, portiere).
+player(3, portiere, attaccante).
+player(4, difensore, portiere).
+player(5, difensore, centrocampista).
+player(6, centrocampista, difensore).
+player(7, difensore, centrocampista).
+player(8, centrocampista, portiere).
+player(9, portiere, difensore).
+player(10, portiere, difensore).
+player(11, portiere, centrocampista).
+player(12, centrocampista, difensore).
+player(13, portiere, centrocampista).
+player(14, portiere, difensore).
+different_team(1, 2).
+\end{lstlisting}
+
+\subsection{Modello ASP}
+
+Il modello ASP utilizza la sintassi della programmazione logica per definire i vincoli e le penalità associati alla configurazione delle squadre. La struttura del modello è la seguente:
+
+\begin{itemize}
+    \item \textbf{Definizione dei Ruoli:} Viene definito l'insieme dei ruoli disponibili (attaccante, difensore, centrocampista e portiere).
+    \item \textbf{Definizione delle Squadre:} Le squadre sono definite utilizzando il numero totale di squadre fornito nel file di input.
+    \item \textbf{Assegnazione dei Giocatori:} Ogni giocatore deve essere assegnato a una sola squadra e a un solo ruolo. Inoltre, deve essere uno dei ruoli che preferisce.
+    \item \textbf{Vincoli delle Squadre:} Ogni squadra deve avere esattamente un portiere e almeno un attaccante, un difensore e un centrocampista. Inoltre, i vincoli di separazione tra giocatori sono rispettati.
+    \item \textbf{Calcolo delle Penalità:} Le penalità sono calcolate in base alla configurazione dei ruoli nelle squadre, con penalità zero per configurazioni specifiche e penalità non nulle per tutte le altre conformazioni.
+\end{itemize}
+
+\subsection{Vincoli e Penalità}
+
+Per garantire che il programma soddisfi i requisiti specificati, sono stati introdotti dei vincoli simili a quelli utilizzati nel programma MiniZinc. I vincoli imposti sono i seguenti:
+
+\begin{itemize}
+    \item Ogni giocatore deve essere assegnato a una squadra e deve avere un ruolo.
+    \item Il ruolo assegnato a un giocatore deve corrispondere a uno dei ruoli scelti dal giocatore stesso.
+    \item Ogni squadra deve avere esattamente un portiere.
+    \item Ogni squadra deve includere almeno un centrocampista, un attaccante e un difensore.
+    \item Alcuni giocatori non possono essere assegnati alla stessa squadra.
+\end{itemize}
+Il Listing \ref{lst:aspVincoli} mostra la definizione dei vincoli.
+
+\begin{lstlisting}[style=minizinc, caption={Vincoli ASP}, label={lst:aspVincoli}]
+    % Assegnazione di un giocatore a una squadra e a un ruolo
+    {assigned(P, T, R) : team(T), role(R)} = 1 :- player(P, _, _).
+    
+    % Il giocatore deve ricoprire uno dei ruoli che ha scelto
+    :- player(P, R1, R2), assigned(P, T, R), R != R1, R != R2.
+    
+    % Ogni squadra deve avere esattamente un portiere
+    1 {assigned(P, T, portiere) : player(P, _, _)} 1 :- team(T).
+    
+    % Ogni squadra deve avere almeno un attaccante, un difensore e un centrocampista
+    1 {assigned(P, T, attaccante) : player(P, _, _)} :- team(T).
+    1 {assigned(P, T, difensore) : player(P, _, _)} :- team(T).
+    1 {assigned(P, T, centrocampista) : player(P, _, _)} :- team(T).
+    
+    % Vincoli di esclusione per giocatori appartenenti a squadre diverse
+    :- different_team(P1, P2), assigned(P1, T, _), assigned(P2, T, _).
+\end{lstlisting}
+Sono state anche introdotte delle penalità, come indicato nel Listing \ref{lst:penalità asp}. Le penalità sono calcolate in base alla configurazione dei membri all'interno della squadra:
+
+\begin{lstlisting}[style=minizinc, caption={Penalità ASP}, label={lst:penalità asp}]
+    % Calcolo delle penalità per configurazioni ottimali
+    penalty(T, 0) :- 
+        team(T),
+        #count{P : assigned(P, T, difensore)} == 3, 
+        #count{P : assigned(P, T, centrocampista)} == 2, 
+        #count{P : assigned(P, T, attaccante)} == 1.
+    
+    penalty(T, 0) :- 
+        team(T),
+        #count{P : assigned(P, T, difensore)} == 2, 
+        #count{P : assigned(P, T, centrocampista)} == 3, 
+        #count{P : assigned(P, T, attaccante)} == 1.
+    
+    % Penalità per configurazioni non ottimali
+    penalty(T, 1) :- 
+        team(T),
+        not penalty(T, 0).
+    
+    % Calcolo della penalità totale per tutte le squadre
+    total_penalty(P) :- 
+        P = #sum { P1 : penalty(T, P1), team(T) }.
+\end{lstlisting}
+Questi vincoli e penalità assicurano che ogni squadra soddisfi le condizioni ottimali e penalizzano le configurazioni non conformi ai requisiti stabiliti.
+
+
+
+
+\subsection{Obiettivo e risultati}
+Anche in questo caso sono stati creati 3 gruppi di test con livelli di difficoltà crescenti:
+\begin{itemize}
+    \item Facile: 10 istanze
+    \item Medio: 10 istanze
+    \item Difficile: 10 istanze
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\section{Generazione dei File di Input}
+
+Per facilitare la sperimentazione e la valutazione del problema di ottimizzazione vincolata (COP) descritto, è stato creato un sistema automatizzato per la generazione dei file di input necessari per i risolutori MiniZinc e Clingo. Questo processo è stato realizzato tramite uno script Python personalizzato, progettato per generare istanze di difficoltà variabile (facili, medie e difficili) e per riempire i file con dati casuali.
+
+\subsection{Script di Generazione in Python}
+
+Lo script Python utilizzato è stato sviluppato per creare automaticamente i file di input in base a parametri specifici. Il codice sorgente è stato progettato per generare file di input sia per MiniZinc che per Clingo, garantendo la compatibilità con i requisiti di entrambi i risolutori. Di seguito, vengono descritti i principali aspetti dello script:
+
+\begin{itemize}
+    \item \textbf{Generazione di Giocatori e Ruoli:} Per ciascun giocatore, lo script assegna due ruoli preferiti tra portiere (g), difensore (d), centrocampista (m) e attaccante (f). Le preferenze sono generate in modo casuale, rispettando le probabilità specificate.
+    \item \textbf{Generazione di Vincoli:} Lo script crea vincoli di separazione tra giocatori selezionati casualmente.
+    \item \textbf{Creazione dei File di Input:} Dopo la generazione dei dati, alcuni script compilano i file di input per MiniZinc e Clingo nei formati richiesti e creano dei file di output.
+\end{itemize}
+
+\subsection{Istanze e Difficoltà}
+
+Le istanze generate dallo script sono classificate in tre categorie di difficoltà:
+
+\begin{itemize}
+    \item \textbf{Facili:} Queste istanze hanno una configurazione di base con vincoli semplici e una distribuzione equilibrata dei ruoli tra i giocatori. Sono progettate per essere risolvibili con tempi di esecuzione brevi e sono utili per testare la correttezza del modello.
+    \item \textbf{Medie:} Le istanze medie presentano una complessità maggiore, con vincoli più restrittivi e una distribuzione dei ruoli più variabile. Queste istanze offrono una sfida maggiore rispetto a quelle facili e sono utilizzate per valutare le prestazioni e l'efficienza del risolutore.
+    \item \textbf{Difficili:} Le istanze difficili sono progettate con una complessità elevata, inclusi vincoli complessi e una distribuzione dei ruoli altamente variabile. Queste istanze sono utili per testare i limiti del risolutore e per valutare la robustezza della soluzione proposta.
+\end{itemize}
+
+\subsection{Riempimento con Dati Casuali}
+
+Per garantire la variabilità e la rappresentatività delle istanze, lo script riempie i file di input con dati casuali. I dati casuali sono generati in modo da simulare situazioni realistiche e sfidanti, mantenendo al contempo un controllo sulla distribuzione dei ruoli e sui vincoli imposti. Questo approccio consente di creare un ampio set di istanze per testare diverse configurazioni e strategie di risoluzione.
+
+\subsection{Conclusioni}
+
+L'automazione della generazione dei file di input tramite lo script Python ha facilitato notevolmente la creazione di istanze variabili e la sperimentazione con diversi scenari. I file generati forniscono una base solida per l'analisi e la risoluzione del problema di ottimizzazione vincolata utilizzando MiniZinc e Clingo, contribuendo così a una valutazione completa delle soluzioni proposte.
+
+
 \end{multicols*}
 \end{document}
