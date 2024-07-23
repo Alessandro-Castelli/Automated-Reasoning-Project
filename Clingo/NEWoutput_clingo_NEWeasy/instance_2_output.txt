@@ -1,0 +1,48 @@
+Input file: instance_2.lp
+Input data:
+num_squadre(2).
+player(1, portiere, attaccante).
+player(2, centrocampista, attaccante).
+player(3, centrocampista, portiere).
+player(4, attaccante, centrocampista).
+player(5, attaccante, centrocampista).
+player(6, attaccante, centrocampista).
+player(7, difensore, portiere).
+player(8, attaccante, centrocampista).
+player(9, centrocampista, portiere).
+player(10, centrocampista, portiere).
+player(11, difensore, centrocampista).
+player(12, portiere, centrocampista).
+player(13, difensore, centrocampista).
+player(14, attaccante, portiere).
+player(15, attaccante, portiere).
+player(16, attaccante, difensore).
+player(17, attaccante, portiere).
+player(18, attaccante, portiere).
+player(19, difensore, centrocampista).
+player(20, attaccante, portiere).
+player(21, attaccante, centrocampista).
+different_team(1, 2).
+different_team(8, 12).
+different_team(2, 18).
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,1,portiere) assigned(2,2,centrocampista) assigned(3,2,portiere) assigned(4,2,attaccante) assigned(5,2,attaccante) assigned(6,2,attaccante) assigned(7,1,difensore) assigned(8,1,centrocampista) assigned(9,2,centrocampista) assigned(10,1,centrocampista) assigned(11,1,difensore) assigned(12,2,centrocampista) assigned(13,2,difensore) assigned(14,2,attaccante) assigned(15,2,attaccante) assigned(16,2,attaccante) assigned(17,2,attaccante) assigned(18,1,attaccante) assigned(19,2,difensore) assigned(20,2,attaccante) assigned(21,2,attaccante) total_penalty(1)
+Optimization: 1
+Answer: 1
+assigned(1,1,portiere) assigned(2,2,centrocampista) assigned(3,2,centrocampista) assigned(4,2,attaccante) assigned(5,1,attaccante) assigned(6,2,centrocampista) assigned(7,2,difensore) assigned(8,1,attaccante) assigned(9,1,centrocampista) assigned(10,1,centrocampista) assigned(11,2,difensore) assigned(12,2,centrocampista) assigned(13,1,difensore) assigned(14,1,attaccante) assigned(15,1,attaccante) assigned(16,1,difensore) assigned(17,1,attaccante) assigned(18,1,attaccante) assigned(19,1,centrocampista) assigned(20,2,portiere) assigned(21,2,attaccante) total_penalty(1)
+Optimization: 1
+OPTIMUM FOUND
+
+Models       : 2+
+  Optimum    : yes
+Optimization : 1
+Calls        : 1
+Time         : 0.006s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.000s
+
+Tempo di esecuzione Clingo: 0.03 secondi

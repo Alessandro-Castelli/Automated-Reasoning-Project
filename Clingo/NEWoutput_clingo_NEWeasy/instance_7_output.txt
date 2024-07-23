@@ -1,0 +1,48 @@
+Input file: instance_7.lp
+Input data:
+num_squadre(2).
+player(1, centrocampista, attaccante).
+player(2, portiere, difensore).
+player(3, difensore, portiere).
+player(4, portiere, centrocampista).
+player(5, difensore, centrocampista).
+player(6, difensore, portiere).
+player(7, difensore, portiere).
+player(8, attaccante, centrocampista).
+player(9, attaccante, portiere).
+player(10, attaccante, centrocampista).
+player(11, portiere, difensore).
+player(12, attaccante, difensore).
+player(13, difensore, attaccante).
+player(14, attaccante, portiere).
+player(15, portiere, attaccante).
+player(16, attaccante, difensore).
+player(17, portiere, difensore).
+player(18, attaccante, centrocampista).
+player(19, difensore, attaccante).
+player(20, centrocampista, attaccante).
+player(21, difensore, portiere).
+different_team(1, 2).
+different_team(2, 19).
+different_team(5, 15).
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,1,centrocampista) assigned(2,2,portiere) assigned(3,1,portiere) assigned(4,2,centrocampista) assigned(5,1,difensore) assigned(6,2,difensore) assigned(7,1,difensore) assigned(8,1,centrocampista) assigned(9,2,attaccante) assigned(10,2,centrocampista) assigned(11,1,difensore) assigned(12,2,attaccante) assigned(13,1,difensore) assigned(14,1,attaccante) assigned(15,2,attaccante) assigned(16,2,attaccante) assigned(17,2,difensore) assigned(18,1,centrocampista) assigned(19,1,difensore) assigned(20,2,attaccante) assigned(21,2,difensore) total_penalty(1)
+Optimization: 1
+Answer: 1
+assigned(1,1,centrocampista) assigned(2,2,difensore) assigned(3,2,portiere) assigned(4,1,centrocampista) assigned(5,2,difensore) assigned(6,1,difensore) assigned(7,1,difensore) assigned(8,2,centrocampista) assigned(9,2,attaccante) assigned(10,1,attaccante) assigned(11,1,portiere) assigned(12,1,difensore) assigned(13,2,difensore) assigned(14,2,attaccante) assigned(15,1,attaccante) assigned(16,2,difensore) assigned(17,1,difensore) assigned(18,1,centrocampista) assigned(19,1,difensore) assigned(20,1,centrocampista) assigned(21,2,difensore) total_penalty(1)
+Optimization: 1
+OPTIMUM FOUND
+
+Models       : 2+
+  Optimum    : yes
+Optimization : 1
+Calls        : 1
+Time         : 0.011s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.000s
+
+Tempo di esecuzione Clingo: 0.03 secondi

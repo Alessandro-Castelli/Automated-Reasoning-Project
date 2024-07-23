@@ -1,0 +1,52 @@
+Input file: instance_9.lp
+Input data:
+num_squadre(1).
+player(1, difensore, centrocampista).
+player(2, difensore, portiere).
+player(3, difensore, attaccante).
+player(4, attaccante, portiere).
+player(5, centrocampista, attaccante).
+player(6, centrocampista, portiere).
+player(7, portiere, centrocampista).
+player(8, difensore, portiere).
+player(9, difensore, attaccante).
+player(10, difensore, attaccante).
+player(11, portiere, centrocampista).
+player(12, centrocampista, difensore).
+player(13, centrocampista, portiere).
+player(14, attaccante, portiere).
+player(15, difensore, centrocampista).
+player(16, attaccante, difensore).
+player(17, centrocampista, difensore).
+player(18, portiere, difensore).
+player(19, centrocampista, attaccante).
+player(20, portiere, attaccante).
+player(21, centrocampista, portiere).
+
+
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,1,difensore) assigned(2,1,portiere) assigned(3,1,difensore) assigned(4,1,attaccante) assigned(5,1,centrocampista) assigned(6,1,centrocampista) assigned(7,1,centrocampista) assigned(8,1,difensore) assigned(9,1,difensore) assigned(10,1,difensore) assigned(11,1,centrocampista) assigned(12,1,centrocampista) assigned(13,1,centrocampista) assigned(14,1,attaccante) assigned(15,1,centrocampista) assigned(16,1,difensore) assigned(17,1,centrocampista) assigned(18,1,difensore) assigned(19,1,centrocampista) assigned(20,1,attaccante) assigned(21,1,centrocampista) total_penalty(1)
+Optimization: 1
+Answer: 1
+assigned(1,1,centrocampista) assigned(2,1,difensore) assigned(3,1,difensore) assigned(4,1,attaccante) assigned(5,1,centrocampista) assigned(6,1,portiere) assigned(7,1,centrocampista) assigned(8,1,difensore) assigned(9,1,difensore) assigned(10,1,difensore) assigned(11,1,centrocampista) assigned(12,1,centrocampista) assigned(13,1,centrocampista) assigned(14,1,attaccante) assigned(15,1,difensore) assigned(16,1,difensore) assigned(17,1,centrocampista) assigned(18,1,difensore) assigned(19,1,centrocampista) assigned(20,1,attaccante) assigned(21,1,centrocampista) total_penalty(1)
+Optimization: 1
+OPTIMUM FOUND
+
+Models       : 2+
+  Optimum    : yes
+Optimization : 1
+Calls        : 1
+Time         : 0.005s (Solving: 0.00s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 0.000s
+
+Tempo di esecuzione Clingo: 0.02 secondi
+
+Errors Clingo:
+C:\Users\ales2\Desktop\AR Project\Automated-Reasoning-Project\Clingo\implASP.lp:22:4-26: info: atom does not occur in any rule head:
+  different_team(P1,P2)
+

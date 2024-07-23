@@ -1,0 +1,61 @@
+Input file: instance_16.lp
+Input data:
+num_squadre(3).
+player(1, centrocampista, difensore).
+player(2, centrocampista, difensore).
+player(3, difensore, centrocampista).
+player(4, centrocampista, difensore).
+player(5, centrocampista, attaccante).
+player(6, attaccante, difensore).
+player(7, centrocampista, difensore).
+player(8, portiere, attaccante).
+player(9, centrocampista, difensore).
+player(10, centrocampista, attaccante).
+player(11, attaccante, centrocampista).
+player(12, attaccante, centrocampista).
+player(13, attaccante, portiere).
+player(14, centrocampista, portiere).
+player(15, attaccante, difensore).
+player(16, attaccante, portiere).
+player(17, centrocampista, portiere).
+player(18, centrocampista, portiere).
+player(19, difensore, centrocampista).
+player(20, centrocampista, attaccante).
+player(21, attaccante, difensore).
+player(22, difensore, attaccante).
+player(23, portiere, centrocampista).
+player(24, attaccante, difensore).
+player(25, centrocampista, attaccante).
+player(26, centrocampista, portiere).
+player(27, portiere, centrocampista).
+player(28, attaccante, difensore).
+different_team(1, 2).
+different_team(1, 3).
+different_team(2, 3).
+different_team(1, 8).
+different_team(10, 28).
+different_team(9, 25).
+different_team(3, 15).
+different_team(8, 9).
+different_team(14, 28).
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,3,centrocampista) assigned(2,1,difensore) assigned(3,2,centrocampista) assigned(4,1,centrocampista) assigned(5,1,centrocampista) assigned(6,3,difensore) assigned(7,3,difensore) assigned(8,1,portiere) assigned(9,2,difensore) assigned(10,3,attaccante) assigned(11,2,attaccante) assigned(12,1,centrocampista) assigned(13,1,attaccante) assigned(14,3,portiere) assigned(15,1,difensore) assigned(16,2,portiere) assigned(17,2,centrocampista) assigned(18,2,centrocampista) assigned(19,1,centrocampista) assigned(20,3,attaccante) assigned(21,2,difensore) assigned(22,2,difensore) assigned(23,1,centrocampista) assigned(24,3,difensore) assigned(25,3,centrocampista) assigned(26,1,centrocampista) assigned(27,1,centrocampista) assigned(28,1,difensore) total_penalty(1)
+Optimization: 1
+Answer: 1
+assigned(1,2,difensore) assigned(2,3,centrocampista) assigned(3,1,centrocampista) assigned(4,3,centrocampista) assigned(5,3,centrocampista) assigned(6,1,difensore) assigned(7,3,centrocampista) assigned(8,1,portiere) assigned(9,3,centrocampista) assigned(10,3,centrocampista) assigned(11,1,centrocampista) assigned(12,2,centrocampista) assigned(13,2,portiere) assigned(14,2,centrocampista) assigned(15,3,difensore) assigned(16,3,attaccante) assigned(17,1,centrocampista) assigned(18,3,portiere) assigned(19,3,centrocampista) assigned(20,2,attaccante) assigned(21,3,difensore) assigned(22,1,difensore) assigned(23,3,centrocampista) assigned(24,3,difensore) assigned(25,1,attaccante) assigned(26,1,centrocampista) assigned(27,2,centrocampista) assigned(28,1,difensore) total_penalty(1)
+Optimization: 1
+OPTIMUM FOUND
+
+Models       : 2+
+  Optimum    : yes
+Optimization : 1
+Calls        : 1
+Time         : 78.036s (Solving: 78.03s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 4.859s
+
+Tempo di esecuzione Clingo: 78.06 secondi

@@ -1,0 +1,85 @@
+num_squadre(6).
+player(1, centrocampista, difensore).
+player(2, portiere, difensore).
+player(3, portiere, difensore).
+player(4, centrocampista, difensore).
+player(5, portiere, centrocampista).
+player(6, difensore, portiere).
+player(7, portiere, attaccante).
+player(8, difensore, portiere).
+player(9, centrocampista, portiere).
+player(10, centrocampista, attaccante).
+player(11, attaccante, portiere).
+player(12, attaccante, difensore).
+player(13, difensore, centrocampista).
+player(14, centrocampista, difensore).
+player(15, portiere, difensore).
+player(16, portiere, centrocampista).
+player(17, centrocampista, portiere).
+player(18, centrocampista, difensore).
+player(19, portiere, centrocampista).
+player(20, centrocampista, attaccante).
+player(21, centrocampista, attaccante).
+player(22, centrocampista, difensore).
+player(23, portiere, difensore).
+player(24, attaccante, difensore).
+player(25, centrocampista, attaccante).
+player(26, difensore, centrocampista).
+player(27, centrocampista, attaccante).
+player(28, centrocampista, attaccante).
+player(29, portiere, difensore).
+player(30, centrocampista, difensore).
+player(31, difensore, centrocampista).
+player(32, difensore, attaccante).
+player(33, difensore, attaccante).
+player(34, portiere, difensore).
+player(35, difensore, attaccante).
+player(36, centrocampista, attaccante).
+player(37, difensore, portiere).
+player(38, difensore, centrocampista).
+player(39, centrocampista, difensore).
+player(40, portiere, centrocampista).
+player(41, difensore, attaccante).
+player(42, difensore, attaccante).
+player(43, difensore, attaccante).
+player(44, difensore, portiere).
+player(45, difensore, attaccante).
+player(46, difensore, attaccante).
+player(47, centrocampista, attaccante).
+player(48, attaccante, difensore).
+player(49, portiere, difensore).
+player(50, centrocampista, difensore).
+player(51, difensore, attaccante).
+player(52, portiere, centrocampista).
+player(53, difensore, centrocampista).
+player(54, centrocampista, attaccante).
+player(55, portiere, attaccante).
+player(56, attaccante, portiere).
+player(57, attaccante, centrocampista).
+player(58, portiere, attaccante).
+player(59, portiere, centrocampista).
+player(60, centrocampista, attaccante).
+player(61, centrocampista, difensore).
+player(62, attaccante, portiere).
+player(63, difensore, centrocampista).
+different_team(1, 2).
+different_team(1, 3).
+different_team(1, 4).
+different_team(1, 5).
+different_team(1, 6).
+different_team(2, 3).
+different_team(2, 4).
+different_team(2, 5).
+different_team(2, 6).
+different_team(3, 4).
+different_team(3, 5).
+different_team(3, 6).
+different_team(4, 5).
+different_team(4, 6).
+different_team(5, 6).
+different_team(15, 35).
+different_team(24, 32).
+different_team(11, 49).
+different_team(26, 42).
+different_team(44, 46).
+different_team(3, 21).

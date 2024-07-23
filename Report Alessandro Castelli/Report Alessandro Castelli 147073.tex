@@ -14,11 +14,13 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{adjustbox}
-
+\usepackage{geometry}
+\usepackage{authblk}
+\usepackage{titling}
 
 \geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
 
-\setlength{\columnsep}{1cm} % Imposta lo spazio tra le colonne
+\setlength{\columnsep}{1cm}
 
 \lstset{
     inputencoding=utf8,
@@ -26,25 +28,22 @@
     literate={à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
 }
 
-% Definizione dello stile per MiniZinc
 \lstdefinestyle{minizinc}{
-    language=Prolog,  % Utilizziamo Python per la sintassi
-    backgroundcolor=\color{white}, % Colore di sfondo
-    basicstyle=\ttfamily\small,    % Font monospaziato
-    keywordstyle=\color{blue}\bfseries, % Parole chiave in blu
-    commentstyle=\color{green!50!black}, % Commenti in verde
-    stringstyle=\color{red},        % Stringhe in rosso
-    numberstyle=\tiny\color{gray},  % Stile della numerazione
-    stepnumber=1,                  % Numerazione ogni riga
-    numbersep=5pt,                 % Distanza della numerazione dal codice
-    breaklines=true,               % Andare a capo automatico
-    frame=single,                  % Cornice attorno al codice
-    captionpos=b,                   % Posizione della didascalia
+    language=Prolog,
+    backgroundcolor=\color{white},
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red},
+    numberstyle=\tiny\color{gray},  
+    stepnumber=1,
+    numbersep=5pt,
+    breaklines=true, 
+    frame=single,
+    captionpos=b,
     frame=none
 }
 
-
-% Configurazione del pacchetto hyperref
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -55,9 +54,14 @@
 \begin{document}
 % chktex-file 44
 
-\title{Report Automated Reasoning} 
-\author{Alessandro Castelli \and (147073)} 
-\date{\today}
+\title{Automated Reasoning Project Report}
+\author{
+    Alessandro Castelli\thanks{Email: \texttt{147073@spes.uniud.it}} \\
+    Matricola: 147073
+}
+
+\date{\today} 
+
 
 \maketitle
 \thispagestyle{empty}  
@@ -65,18 +69,19 @@
 \captionsetup[table]{skip=10pt} 
 \tableofcontents
 \setcounter{page}{1}
-\pagenumbering{arabic} % Numerazione in numeri arabi
+\pagenumbering{arabic} 
 \pagestyle{fancy}
-\fancyhf{} % Pulisce intestazioni e piè di pagina
-\fancyfoot[C]{\thepage} % Centra il numero di pagina nel piè di pagina
-\renewcommand{\headrulewidth}{0pt} % Rimuove la linea orizzontale dell'intestazione
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
 
 \newpage
 \begin{multicols*}{2}
 \section{Introduzione}
 Il presente report si concentra sull'analisi delle soluzioni al problema assegnato, 
 riguardante l'organizzazione di un torneo di calcio a 7. 
-Il problema in questione presenta diverse sfide legate alla suddivisione ottimale dei giocatori in squadre, rispettando specifici vincoli e minimizzando le penalità assegnate alle diverse configurazioni di squadra.
+Il problema in questione presenta diverse sfide legate alla suddivisione ottimale dei giocatori in squadre, 
+rispettando specifici vincoli e minimizzando le penalità assegnate alle diverse configurazioni di squadra.
 
 \subsection{Problema: Torneo di calcio a 7}
 \begin{quote}
@@ -91,15 +96,18 @@ Il problema in questione presenta diverse sfide legate alla suddivisione ottimal
     in input che costringono \(p_i\) e \(p_j\) a essere in squadre diverse. 
 \end{quote}
 Il problema affrontato è un \texttt{Constraint Optimization Problem} \textbf{\texttt{(COP)}}. 
-Per risolverlo, sono stati sviluppati due programmi che impiegano due tecniche di programmazione distinte: \textbf{programmazione per vincoli con MiniZinc} e \textbf{Answer Set Programming utilizzando il solver Clingo}.
+Per risolverlo, sono stati sviluppati due programmi che impiegano due tecniche di programmazione distinte:
+ \textbf{programmazione per vincoli con MiniZinc} e \textbf{Answer Set Programming utilizzando il solver Clingo}.
 \\
-Entrambi gli approcci sono stati selezionati per la loro efficacia nella gestione di problemi complessi e vincolati, sebbene differiscano nelle metodologie e negli strumenti adottati per ottenere la soluzione ottimale. 
+Entrambi gli approcci sono stati selezionati per la loro efficacia nella gestione di problemi complessi e vincolati, 
+sebbene differiscano nelle metodologie e negli strumenti adottati per ottenere la soluzione ottimale. 
 \\
 Nelle sezioni seguenti, verranno fornite descrizioni approfondite di entrambi gli approcci.
 Inoltre, sarà presentata un'analisi dei risultati ottenuti da ciascun metodo. 
 
 \section{Modellazione del problema}
-Prima di iniziare la fase di programmazione, ho proceduto con lo studio e l'analisi del testo. Di seguito riporto alcune assunzioni che ho fatto:
+Prima di iniziare la fase di programmazione, ho proceduto con lo studio e l'analisi del testo. 
+Di seguito riporto alcune assunzioni che ho fatto:
 \\
 Le assunzioni fatte per la risoluzione del problema sono le seguenti:
 
@@ -134,7 +142,8 @@ num_pairs = 1;
 player1 = [5];
 player2 = [1];
 \end{lstlisting}
-Nel codice mostrato in \href{#lst:minizinc_example}{Listing \ref{lst:minizinc_example}}, è possibile vedere quali sono i dati che il modello vuole in input. È necessario inserire:
+Nel codice mostrato in \href{#lst:minizinc_example}{Listing \ref{lst:minizinc_example}}, 
+è possibile vedere quali sono i dati che il modello vuole in input. È necessario inserire:
 \begin{itemize}
     \item Il numero di giocatori \texttt{n}
     \item Il numero di squadre \texttt{k}
@@ -144,8 +153,9 @@ Nel codice mostrato in \href{#lst:minizinc_example}{Listing \ref{lst:minizinc_ex
 \end{itemize}
 
 \subsection{I vincoli Minizinc}
-Per la corretta modellazione del problema, sono stati definiti diversi \texttt{vincoli} che regolano l'assegnazione dei ruoli ai giocatori all'interno delle squadre, garantendo così il rispetto delle regole del gioco e l'equilibrio tra i team. Di seguito, vengono descritti i principali vincoli implementati:
-
+Per la corretta modellazione del problema, 
+sono stati definiti diversi \texttt{vincoli} che regolano l'assegnazione dei ruoli ai giocatori all'interno delle squadre, 
+garantendo così il rispetto delle regole del gioco e l'equilibrio tra i team. Di seguito, vengono descritti i principali vincoli implementati:
 
 \begin{lstlisting}[style=minizinc, caption={Vincolo 1 Minizinc}, label={lst:minizinc_vincolo}]
 constraint
@@ -235,17 +245,22 @@ I file di input e output relativi sono inclusi nel progetto e disponibili per co
 
 \subsection{Metodologia}
 
-Per ciascuna istanza sono stati utilizzati due solver: Gecode e Chuffed. Il tempo massimo di esecuzione (timeout) per ogni istanza è stato impostato a 5 minuti. Se un solver non riesce a trovare una soluzione entro questo tempo, viene segnato come \textit{TIMEOUT}.
+Per ciascuna istanza sono stati utilizzati due solver: Gecode e Chuffed. 
+Il tempo massimo di esecuzione (timeout) per ogni istanza è stato impostato a 5 minuti. 
+Se un solver non riesce a trovare una soluzione entro questo tempo, viene segnato come \textit{TIMEOUT}.
 
 \subsection{Risultati}
-I risultati ottenuti sono riportati nella Tabella~\ref{tab:minizinc}, che mostra il tempo di esecuzione in secondi per ogni istanza risolta dai solver Gecode e Chuffed.
+I risultati ottenuti sono riportati nella Tabella~\ref{tab:minizinc}, 
+che mostra il tempo di esecuzione in secondi per ogni istanza risolta dai solver Gecode e Chuffed.
 \\
-Come è possibile vedere dai riusltati il sover Chuffed giugnge a conclusione molto più velocemnete del solver Gecode.
+Come è possibile vedere dai riusltati il sover Chuffed giugnge a conclusione molto più velocemente del solver Gecode.
 \\
 \texttt{TIMEOUT} vuol dire che ha superato la soglia massima di tempo che è stata impostata a 5 minuti.
 
 \subsection{Analisi dei Risultati}
-Come si può osservare dalla Tabella~\ref{tab:minizinc}, il solver Chuffed riesce a concludere i calcoli in tempi significativamente più brevi rispetto al solver Gecode in tutte le istanze. In particolare:
+Come si può osservare dalla Tabella~\ref{tab:minizinc}, 
+il solver Chuffed riesce a concludere i calcoli in tempi significativamente più brevi rispetto al solver Gecode in tutte le istanze. 
+In particolare:
 
 \begin{itemize}
     \item \textbf{Istanze Facili}: Entrambi i solver completano tutte le istanze entro il tempo limite, ma Chuffed risolve le istanze con tempi generalmente inferiori rispetto a Gecode.
@@ -253,7 +268,6 @@ Come si può osservare dalla Tabella~\ref{tab:minizinc}, il solver Chuffed riesc
     \item \textbf{Istanze Difficili}: Gecode non riesce a completare la maggior parte delle istanze entro il tempo limite, mentre Chuffed riesce a risolvere alcune istanze ma fallisce (\textit{TIMEOUT}) nelle più complesse.
 \end{itemize}
 Si può osservare che, talvolta, istanze simili in \texttt{n} e \texttt{k} presentano tempi di esecuzione differenti. Questo avviene perché variano i ruoli dei giocatori e le assegnazioni dei giocatori a squadre diverse.
-
 
 \begin{table}[H]
     \centering
@@ -298,13 +312,17 @@ Si può osservare che, talvolta, istanze simili in \texttt{n} e \texttt{k} prese
     \end{tabular}
 \end{table}
 
-\section{ASP}
+\newpage
 
+\section{ASP}
 In questa sezione verrà spiegato come risolvere il problema di ottimizzazione vincolata (COP) utilizzando il risolutore ASP Clingo.
 
 \subsection{Input}
-
-Come si può osservare nel Listing \ref{lst:aspInput}, i file di input per Clingo presentano una struttura simile a quella dei file MiniZinc, ma sono adattati alla sintassi specifica della programmazione logica. Le differenze risiedono principalmente nei paradigmi di programmazione utilizzati, che richiedono una modifica della sintassi per soddisfare i requisiti di Clingo.
+Come si può osservare nel Listing \ref{lst:aspInput}, 
+i file di input per Clingo presentano una struttura simile a quella dei file MiniZinc (Listing \ref{lst:minizinc_example}), 
+ma sono adattati alla sintassi specifica della programmazione logica. 
+Le differenze risiedono principalmente nei paradigmi di programmazione utilizzati, 
+che richiedono una modifica della sintassi per soddisfare i requisiti di Clingo.
 
 \begin{lstlisting}[style=minizinc, caption={ASP Input}, label={lst:aspInput}]
 num_squadre(2).
@@ -326,7 +344,6 @@ different_team(1, 2).
 \end{lstlisting}
 
 \subsection{Modello ASP}
-
 Il modello ASP utilizza la sintassi della programmazione logica per definire i vincoli e le penalità associati alla configurazione delle squadre. La struttura del modello è la seguente:
 
 \begin{itemize}
@@ -338,8 +355,11 @@ Il modello ASP utilizza la sintassi della programmazione logica per definire i v
 \end{itemize}
 
 \subsection{Vincoli e Penalità}
-
-Per garantire che il programma soddisfi i requisiti specificati, sono stati introdotti dei vincoli simili a quelli utilizzati nel programma MiniZinc. I vincoli imposti sono i seguenti:
+Per garantire che il programma soddisfi i requisiti specificati, 
+sono stati introdotti dei vincoli simili a quelli utilizzati nel programma MiniZinc ma con la sintassi adattata a questo tipo di programmazione. 
+\\
+\\
+I vincoli imposti sono i seguenti:
 
 \begin{itemize}
     \item Ogni giocatore deve essere assegnato a una squadra e deve avere un ruolo.
@@ -368,7 +388,9 @@ Il Listing \ref{lst:aspVincoli} mostra la definizione dei vincoli.
     % Vincoli di esclusione per giocatori appartenenti a squadre diverse
     :- different_team(P1, P2), assigned(P1, T, _), assigned(P2, T, _).
 \end{lstlisting}
-Sono state anche introdotte delle penalità, come indicato nel Listing \ref{lst:penalità asp}. Le penalità sono calcolate in base alla configurazione dei membri all'interno della squadra:
+Sono state anche introdotte delle penalità, 
+come indicato nel Listing \ref{lst:penalità asp}. 
+Le penalità sono calcolate in base alla configurazione dei membri all'interno della squadra:
 
 \begin{lstlisting}[style=minizinc, caption={Penalità ASP}, label={lst:penalità asp}]
     % Calcolo delle penalità per configurazioni ottimali
@@ -393,9 +415,8 @@ Sono state anche introdotte delle penalità, come indicato nel Listing \ref{lst:
     total_penalty(P) :- 
         P = #sum { P1 : penalty(T, P1), team(T) }.
 \end{lstlisting}
-Questi vincoli e penalità assicurano che ogni squadra soddisfi le condizioni ottimali e penalizzano le configurazioni non conformi ai requisiti stabiliti.
-
-
+Questi vincoli e penalità assicurano che ogni squadra soddisfi le condizioni ottimali 
+e penalizzano le configurazioni non conformi ai requisiti stabiliti.
 
 
 \subsection{Obiettivo e risultati}
@@ -405,18 +426,104 @@ Anche in questo caso sono stati creati 3 gruppi di test con livelli di difficolt
     \item Medio: 10 istanze
     \item Difficile: 10 istanze
 \end{itemize}
+Anche in questo caso il tempo massimo per ogni istanza è stato impostato a 5 minuti. 
+Se non viene trovato un risultato entro il tempo limite, viene segnato \texttt{TIMEOUT}.
+\\
+Nella Tabella \ref{tab:ASP} puoi vedere i risultati delle performance del modello utilizzando la stessa tipologia dei dati di 
+input che sono stati utilizzati nel programma Minzinc. 
+Come è possibile osservare, ASP va generalmente meglio di MiniZinc; 
+per questo motivo ho creato un altro set di dati difficili dove eseguire questo modello per vedere quali tipologie di dati 
+lo portano in \texttt{TIMEOUT}. Nella Tabella \ref{tab:timeout2} è possibile vedere i risultati con dati di input più complessi,
+dove ho aumentato sia $n$ che $k$ che il numero di vincoli \texttt{all\_different} 
+(i file di input completi si possono trovare nella documentazione del progetto).
+
+\begin{table}[H]
+    \centering
+    \caption{Performance ASP}\label{tab:ASP}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \textbf{Livello} & \textbf{n} & \textbf{k} & \textbf{Time (s)} \\
+        \hline
+        Facile 1 & 14 & 1 & 0.004 \\
+        Facile 2 & 14 & 2 & 0.02 \\
+        Facile 3 & 14 & 2 & 0.005 \\
+        Facile 4 & 14 & 2 & 0.005 \\
+        Facile 5 & 14 & 1 & 0.004 \\
+        Facile 6 & 14 & 1 & 0.004 \\
+        Facile 7 & 14 & 2 & 0.005 \\
+        Facile 8 & 14 & 2 & 0.005 \\
+        Facile 9 & 14 & 2 & 0.005 \\
+        Facile 10 & 14 & 2 & 0.005 \\
+        \hline
+        Medio 1 & 14 & 2 & 0.005 \\
+        Medio 2 & 14 & 3 & 0.181 \\
+        Medio 3 & 14 & 2 & 0.005 \\
+        Medio 4 & 14 & 2 & 0.006 \\
+        Medio 5 & 14 & 2 & 0.006 \\
+        Medio 6 & 14 & 2 & 0.005 \\
+        Medio 7 & 14 & 3 & 0.007 \\
+        Medio 8 & 21 & 3 & 0.008\\
+        Medio 9 & 14 & 3 & 0.007 \\
+        Medio 10 & 14 & 3 & 0.007 \\
+        \hline
+        Difficile 1 & 28 & 4 & 0.015 \\
+        Difficile 2 & 35 & 2 & 0.013 \\
+        Difficile 3 & 28 & 3 & 48.409 \\
+        Difficile 4 & 28 & 3 & 6.160 \\
+        Difficile 5 & 28 & 2 & 0.017 \\
+        Difficile 6 & 28 & 3 & 76.641 \\
+        Difficile 7 & 28 & 2 & 0.007\\
+        Difficile 8 & 28 & 3 & 62.021\\
+        Difficile 9 & 28 & 3 & 75.452\\
+        Difficile 10 & 35 & 3 & 104.743 \\
+        \hline
+    \end{tabular}
+\end{table}
 
 
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Livello} & \textbf{n} & \textbf{k} & \textbf{Time (s)} \\
+        \hline
+        Facile 1     & 2  & 21 & 0.013 \\
+        Facile 2     & 1  & 21 & 0.005 \\
+        Facile 3     & 2  & 21 & 0.006 \\
+        Facile 4     & 1  & 21 & 0.005 \\
+        Facile 5     & 2  & 21 & 0.028 \\
+        Facile 6     & 2  & 21 & 0.091 \\
+        Facile 7     & 2  & 21 & 0.025 \\
+        Facile 8     & 2  & 21 & 0.011 \\
+        Facile 9     & 2  & 21 & 0.007 \\
+        Medio 1      & 1  & 21 & 0.005 \\
+        Medio 2      & 3  & 28 & 0.017 \\
+        Medio 3      & 4  & 28 & 0.012 \\
+        Medio 4      & 2  & 28 & 0.008 \\
+        Medio 5      & 4  & 28 & 0.014 \\
+        Difficile 1  & 3  & 28 & 12.623 \\
+        Difficile 2  & 3  & 28 & 78.036 \\
+        Difficile 3  & 4  & 28 & 0.012 \\
+        Difficile 4  & 4  & 28 & 0.012 \\
+        Difficile 5  & 2  & 35 & 0.01 \\
+        Difficile 6  & 2  & 35 & 0.01 \\
+        Difficile 7  & 5  & 63 & 111.509 \\
+        Difficile 8  & 6  & 70 & TIMEOUT \\
+        Difficile 9  & 7  & 63 & TIMEOUT \\
+        Difficile 10 & 8  & 63 & TIMEOUT \\
+        Difficile 11 & 5  & 63 & TIMEOUT \\
+        Difficile 12 & 8  & 70 & TIMEOUT \\
+        Difficile 13 & 4  & 63 & 0.378 \\
+        Difficile 14 & 6  & 63 & TIMEOUT \\
+        Difficile 15 & 7  & 63 & TIMEOUT \\
+        Difficile 16 & 7  & 63 & TIMEOUT \\
+        \hline
+    \end{tabular}
+    \caption{Performance ASP 2}
+    \label{tab:timeout2}
+\end{table}
 
-
-
-
-
-
-
-
-
-
+\newpage
 \section{Generazione dei File di Input}
 
 Per facilitare la sperimentazione e la valutazione del problema di ottimizzazione vincolata (COP) descritto, è stato creato un sistema automatizzato per la generazione dei file di input necessari per i risolutori MiniZinc e Clingo. Questo processo è stato realizzato tramite uno script Python personalizzato, progettato per generare istanze di difficoltà variabile (facili, medie e difficili) e per riempire i file con dati casuali.
@@ -444,11 +551,36 @@ Le istanze generate dallo script sono classificate in tre categorie di difficolt
 \subsection{Riempimento con Dati Casuali}
 
 Per garantire la variabilità e la rappresentatività delle istanze, lo script riempie i file di input con dati casuali. I dati casuali sono generati in modo da simulare situazioni realistiche e sfidanti, mantenendo al contempo un controllo sulla distribuzione dei ruoli e sui vincoli imposti. Questo approccio consente di creare un ampio set di istanze per testare diverse configurazioni e strategie di risoluzione.
-
-\subsection{Conclusioni}
-
+\\
 L'automazione della generazione dei file di input tramite lo script Python ha facilitato notevolmente la creazione di istanze variabili e la sperimentazione con diversi scenari. I file generati forniscono una base solida per l'analisi e la risoluzione del problema di ottimizzazione vincolata utilizzando MiniZinc e Clingo, contribuendo così a una valutazione completa delle soluzioni proposte.
 
+\clearpage
+
+\section{Conclusioni}
+
+In questo report abbiamo esplorato il problema di organizzazione di un torneo di calcio a 7 attraverso due approcci distinti: \textbf{Programmazione per Vincoli con MiniZinc} e \textbf{Answer Set Programming (ASP) con Clingo}. Entrambi i metodi sono stati impiegati per risolvere il problema di ottimizzazione vincolata, mirato a minimizzare le penalità associate alle configurazioni delle squadre, rispettando al contempo una serie di vincoli prestabiliti.
+
+\subsection{Sintesi dei Risultati}
+
+I risultati ottenuti con MiniZinc e Clingo mostrano chiaramente le differenze di performance tra i due approcci:
+
+\begin{itemize}
+    \item \textbf{MiniZinc}: I test condotti con MiniZinc hanno rivelato che il solver Chuffed, utilizzato per la risoluzione del problema, è significativamente più veloce rispetto a Gecode, specialmente con istanze di difficoltà media e difficile. I tempi di esecuzione mostrano che Chuffed riesce a gestire più efficacemente la complessità crescente delle istanze, risolvendo la maggior parte dei casi difficili entro il tempo limite, mentre Gecode spesso incontra difficoltà, portando a \textit{TIMEOUT} in molti casi.
+    \item \textbf{ASP con Clingo}: Clingo, utilizzato per la risoluzione tramite programmazione logica, ha dimostrato una notevole efficienza anche per istanze più complesse. Sebbene il tempo di esecuzione possa variare in base alla specificità dei vincoli e delle penalità, Clingo ha generalmente ottenuto risultati competitivi, risolvendo in tempi accettabili anche le istanze più difficili.
+\end{itemize}
+
+\subsection{Riflessioni sui Metodi Utilizzati}
+
+\begin{itemize}
+    \item \textbf{MiniZinc}: La programmazione per vincoli con MiniZinc si è rivelata un metodo potente per affrontare il problema, soprattutto per la sua capacità di gestire vincoli complessi e penalità multiple. Tuttavia, la scelta del solver influisce notevolmente sulle prestazioni, come evidenziato dalla differenza tra Chuffed e Gecode.
+    \item \textbf{ASP con Clingo}: L'approccio basato su ASP ha dimostrato una buona capacità di adattamento ai vincoli specifici del problema. La flessibilità della programmazione logica consente una definizione chiara dei vincoli e delle penalità, sebbene la performance possa dipendere dalla complessità del problema e dalla qualità del modello ASP definito.
+\end{itemize}
+
+\subsection{Considerazioni Finali}
+
+Entrambi gli approcci hanno mostrato la loro validità nella risoluzione del problema di assegnazione delle squadre, con MiniZinc particolarmente efficace per problemi con vincoli più rigidi e penalità specifiche, e Clingo eccellente per la sua flessibilità nella definizione e gestione di vincoli complessi. La scelta tra MiniZinc e ASP dipende in gran parte dalle specifiche esigenze del problema e dalle preferenze dell'utente in termini di sintassi e metodologie di risoluzione.
+\\
+In conclusione, il report ha dimostrato che la modellazione e la risoluzione di problemi complessi come quello dell'organizzazione di tornei possono beneficiare notevolmente dall'utilizzo di tecniche avanzate di programmazione e ottimizzazione, offrendo soluzioni pratiche e efficienti a problemi reali.
 
 \end{multicols*}
 \end{document}

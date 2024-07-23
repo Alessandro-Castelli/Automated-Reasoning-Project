@@ -1,0 +1,89 @@
+Input file: instance_25.lp
+Input data:
+num_squadre(5).
+player(1, centrocampista, portiere).
+player(2, centrocampista, portiere).
+player(3, centrocampista, portiere).
+player(4, portiere, centrocampista).
+player(5, difensore, attaccante).
+player(6, attaccante, difensore).
+player(7, centrocampista, attaccante).
+player(8, difensore, portiere).
+player(9, attaccante, centrocampista).
+player(10, centrocampista, portiere).
+player(11, centrocampista, portiere).
+player(12, centrocampista, portiere).
+player(13, centrocampista, portiere).
+player(14, centrocampista, attaccante).
+player(15, attaccante, difensore).
+player(16, attaccante, centrocampista).
+player(17, attaccante, centrocampista).
+player(18, difensore, portiere).
+player(19, centrocampista, attaccante).
+player(20, attaccante, difensore).
+player(21, portiere, difensore).
+player(22, attaccante, portiere).
+player(23, portiere, difensore).
+player(24, centrocampista, attaccante).
+player(25, attaccante, difensore).
+player(26, attaccante, difensore).
+player(27, centrocampista, attaccante).
+player(28, attaccante, difensore).
+player(29, portiere, attaccante).
+player(30, portiere, attaccante).
+player(31, portiere, attaccante).
+player(32, difensore, portiere).
+player(33, attaccante, centrocampista).
+player(34, portiere, centrocampista).
+player(35, difensore, centrocampista).
+player(36, centrocampista, difensore).
+player(37, portiere, attaccante).
+player(38, portiere, difensore).
+player(39, centrocampista, portiere).
+player(40, difensore, centrocampista).
+player(41, centrocampista, attaccante).
+player(42, difensore, portiere).
+player(43, attaccante, centrocampista).
+player(44, centrocampista, attaccante).
+player(45, portiere, centrocampista).
+player(46, centrocampista, portiere).
+player(47, centrocampista, difensore).
+player(48, centrocampista, portiere).
+player(49, portiere, difensore).
+player(50, difensore, attaccante).
+player(51, centrocampista, attaccante).
+player(52, attaccante, portiere).
+player(53, portiere, attaccante).
+player(54, portiere, difensore).
+player(55, portiere, difensore).
+player(56, attaccante, centrocampista).
+player(57, attaccante, portiere).
+player(58, centrocampista, portiere).
+player(59, portiere, difensore).
+player(60, difensore, attaccante).
+player(61, attaccante, difensore).
+player(62, difensore, portiere).
+player(63, attaccante, centrocampista).
+different_team(1, 2).
+different_team(1, 3).
+different_team(1, 4).
+different_team(1, 5).
+different_team(2, 3).
+different_team(2, 4).
+different_team(2, 5).
+different_team(3, 4).
+different_team(3, 5).
+different_team(4, 5).
+different_team(8, 55).
+different_team(1, 28).
+different_team(47, 62).
+different_team(5, 24).
+different_team(8, 46).
+different_team(44, 50).
+
+Output Clingo:
+
+Tempo di esecuzione Clingo: 300.00 secondi
+
+Errors Clingo:
+Il processo ha superato il limite di tempo.

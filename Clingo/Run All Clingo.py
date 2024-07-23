@@ -10,7 +10,7 @@ def run_clingo(model, data_file, time_limit):
             ["clingo", model, data_file, "--opt-mode=optN", "--time-limit", str(time_limit), "--models=1"],
             capture_output=True,
             text=True,
-            timeout=time_limit  # Limite di tempo in secondi
+            timeout=time_limit  
         )
         end_time = time.time()
         execution_time = end_time - start_time
@@ -71,7 +71,7 @@ def main():
 
     # Directory di input e output per ciascuna difficoltà
     difficulties = ["easy", "medium", "hard"]
-    time_limit = 300  # Limite di tempo in secondi (5 minuti)
+    time_limit = 300  
 
     for difficulty in difficulties:
         input_dir = os.path.join(current_dir, "instancesClingo", difficulty)

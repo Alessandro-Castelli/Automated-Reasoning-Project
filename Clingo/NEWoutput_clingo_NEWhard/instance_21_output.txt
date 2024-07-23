@@ -1,0 +1,103 @@
+Input file: instance_21.lp
+Input data:
+num_squadre(5).
+player(1, attaccante, difensore).
+player(2, attaccante, centrocampista).
+player(3, centrocampista, difensore).
+player(4, portiere, difensore).
+player(5, attaccante, difensore).
+player(6, difensore, attaccante).
+player(7, difensore, centrocampista).
+player(8, portiere, difensore).
+player(9, difensore, portiere).
+player(10, attaccante, centrocampista).
+player(11, difensore, attaccante).
+player(12, attaccante, portiere).
+player(13, difensore, centrocampista).
+player(14, difensore, attaccante).
+player(15, centrocampista, attaccante).
+player(16, portiere, centrocampista).
+player(17, portiere, attaccante).
+player(18, difensore, attaccante).
+player(19, attaccante, centrocampista).
+player(20, attaccante, difensore).
+player(21, portiere, centrocampista).
+player(22, centrocampista, attaccante).
+player(23, centrocampista, attaccante).
+player(24, attaccante, centrocampista).
+player(25, attaccante, portiere).
+player(26, portiere, attaccante).
+player(27, difensore, portiere).
+player(28, portiere, difensore).
+player(29, portiere, difensore).
+player(30, difensore, centrocampista).
+player(31, portiere, difensore).
+player(32, difensore, portiere).
+player(33, attaccante, portiere).
+player(34, portiere, attaccante).
+player(35, attaccante, portiere).
+player(36, centrocampista, portiere).
+player(37, difensore, attaccante).
+player(38, difensore, portiere).
+player(39, difensore, attaccante).
+player(40, attaccante, portiere).
+player(41, difensore, centrocampista).
+player(42, difensore, attaccante).
+player(43, difensore, centrocampista).
+player(44, difensore, centrocampista).
+player(45, portiere, difensore).
+player(46, portiere, centrocampista).
+player(47, attaccante, portiere).
+player(48, attaccante, centrocampista).
+player(49, difensore, centrocampista).
+player(50, difensore, attaccante).
+player(51, difensore, centrocampista).
+player(52, portiere, attaccante).
+player(53, centrocampista, portiere).
+player(54, difensore, portiere).
+player(55, portiere, difensore).
+player(56, attaccante, centrocampista).
+player(57, centrocampista, difensore).
+player(58, portiere, difensore).
+player(59, attaccante, difensore).
+player(60, portiere, attaccante).
+player(61, centrocampista, portiere).
+player(62, centrocampista, attaccante).
+player(63, centrocampista, difensore).
+different_team(1, 2).
+different_team(1, 3).
+different_team(1, 4).
+different_team(1, 5).
+different_team(2, 3).
+different_team(2, 4).
+different_team(2, 5).
+different_team(3, 4).
+different_team(3, 5).
+different_team(4, 5).
+different_team(51, 57).
+different_team(12, 54).
+different_team(17, 22).
+different_team(2, 31).
+different_team(25, 47).
+different_team(34, 61).
+
+Output Clingo:
+clingo version 5.7.1
+Reading from ...ed-Reasoning-Project\Clingo\implASP.lp ...
+Solving...
+Answer: 1
+assigned(1,3,difensore) assigned(2,5,centrocampista) assigned(3,4,difensore) assigned(4,2,difensore) assigned(5,1,attaccante) assigned(6,5,difensore) assigned(7,4,centrocampista) assigned(8,1,difensore) assigned(9,4,difensore) assigned(10,3,centrocampista) assigned(11,3,attaccante) assigned(12,5,portiere) assigned(13,3,centrocampista) assigned(14,1,difensore) assigned(15,5,centrocampista) assigned(16,1,centrocampista) assigned(17,1,attaccante) assigned(18,1,difensore) assigned(19,3,attaccante) assigned(20,3,difensore) assigned(21,2,centrocampista) assigned(22,5,centrocampista) assigned(23,4,centrocampista) assigned(24,3,attaccante) assigned(25,5,attaccante) assigned(26,1,attaccante) assigned(27,1,difensore) assigned(28,2,portiere) assigned(29,1,difensore) assigned(30,3,centrocampista) assigned(31,1,difensore) assigned(32,3,difensore) assigned(33,3,portiere) assigned(34,1,attaccante) assigned(35,2,attaccante) assigned(36,4,portiere) assigned(37,1,difensore) assigned(38,1,difensore) assigned(39,1,difensore) assigned(40,4,attaccante) assigned(41,5,difensore) assigned(42,1,difensore) assigned(43,1,difensore) assigned(44,1,difensore) assigned(45,2,difensore) assigned(46,1,centrocampista) assigned(47,2,attaccante) assigned(48,3,attaccante) assigned(49,1,difensore) assigned(50,5,difensore) assigned(51,1,centrocampista) assigned(52,1,attaccante) assigned(53,2,centrocampista) assigned(54,1,difensore) assigned(55,1,difensore) assigned(56,4,centrocampista) assigned(57,4,difensore) assigned(58,1,difensore) assigned(59,1,difensore) assigned(60,1,portiere) assigned(61,2,centrocampista) assigned(62,1,attaccante) assigned(63,2,difensore) total_penalty(1)
+Optimization: 1
+Answer: 1
+assigned(1,3,attaccante) assigned(2,5,centrocampista) assigned(3,4,difensore) assigned(4,2,difensore) assigned(5,1,attaccante) assigned(6,5,difensore) assigned(7,5,centrocampista) assigned(8,2,difensore) assigned(9,1,difensore) assigned(10,1,attaccante) assigned(11,2,difensore) assigned(12,5,portiere) assigned(13,1,centrocampista) assigned(14,5,difensore) assigned(15,4,centrocampista) assigned(16,1,centrocampista) assigned(17,1,portiere) assigned(18,4,difensore) assigned(19,2,centrocampista) assigned(20,3,difensore) assigned(21,5,centrocampista) assigned(22,5,centrocampista) assigned(23,3,centrocampista) assigned(24,5,centrocampista) assigned(25,5,attaccante) assigned(26,1,attaccante) assigned(27,2,difensore) assigned(28,5,difensore) assigned(29,2,difensore) assigned(30,5,centrocampista) assigned(31,1,difensore) assigned(32,2,difensore) assigned(33,3,portiere) assigned(34,1,attaccante) assigned(35,2,attaccante) assigned(36,1,centrocampista) assigned(37,3,difensore) assigned(38,2,difensore) assigned(39,3,difensore) assigned(40,4,attaccante) assigned(41,5,centrocampista) assigned(42,2,difensore) assigned(43,3,centrocampista) assigned(44,1,centrocampista) assigned(45,2,difensore) assigned(46,5,centrocampista) assigned(47,2,portiere) assigned(48,4,centrocampista) assigned(49,3,centrocampista) assigned(50,1,attaccante) assigned(51,1,centrocampista) assigned(52,1,attaccante) assigned(53,5,centrocampista) assigned(54,4,difensore) assigned(55,4,difensore) assigned(56,4,centrocampista) assigned(57,4,difensore) assigned(58,4,difensore) assigned(59,2,difensore) assigned(60,4,portiere) assigned(61,2,centrocampista) assigned(62,5,centrocampista) assigned(63,2,centrocampista) total_penalty(1)
+Optimization: 1
+OPTIMUM FOUND
+
+Models       : 2+
+  Optimum    : yes
+Optimization : 1
+Calls        : 1
+Time         : 111.509s (Solving: 111.48s 1st Model: 0.00s Unsat: 0.00s)
+CPU Time     : 18.594s
+
+Tempo di esecuzione Clingo: 111.53 secondi
