@@ -1,0 +1,26 @@
+ 
+11. Torneo calcio a 7.
+
+Ci sono n giocatori di calcio p_1, ..., p_n. 
+Supponiamo che n sia un multiplo di 7. 
+Ciascuno di loro può giocare come portiere (g), difensore (d), centrocampista (m), attaccante (f). Ognuno di loro sceglie esattamente due di queste opzioni (dati di input).
+
+Il problema è quello di dividerli in k squadre dove ciascuna squadra ha esattamente un g, almeno un d, almeno un m e almeno un f. Un ruolo unico viene assegnato a ciascuno di loro tra uno dei due dichiarati in input.
+
+Se una squadra ha esattamente 3 d, 2 m e 1 f, la sua penalità è 0. Se una squadra ha esattamente 2 d, 3 m e 1 f, la sua penalità è 0. Decidi (sei libero di assegnare valori) penalità non nulle per tutte le altre conformazioni.
+
+Trova una soluzione che minimizzi la somma delle penalità.
+
+Viene fornito anche un elenco di vincoli del tipo differentteam(p_i, p_j) in input che costringono p_i e p_j a essere in squadre diverse.
+
+
+Crea un programma in Clingo per il seguente COP(Constraint Optimation Prtoblem) che:
+- dati n giocatori li divida in k squadre
+- ogni giocatore può esprimere preferenze su quale ruolo vuole avere (attaccane, difensore, centrocampista,portiere)
+- alla fine il giocatore avrà un ruole tra le due preferenze che ha scelto
+-ogni squadra deve avere esattamente un portiere, almeno 1 attaccante almeno un difensore e almeno un centrocampiasta
+- Se una squadra ha esattamente 3 d, 2 m e 1 f, la sua penalità è 0. 
+- Se una squadra ha esattamente 2 d, 3 m e 1 f, la sua penalità è 0.
+-  penalità non nulle per tutte le altre conformazioni.
+- Viene fornito anche un elenco di vincoli del tipo differentteam(p_i, p_j) in input che costringono p_i e p_j a essere in squadre diverse.
+- Dividi il file di input da quello di implementazione, nel file di input ci devono essere il numero di giocatori il numero di squadre i ruoli che scelgono i giocatori e i giocatori che non possono giocare nelle stesse sqaudre che poi verrano utilizzati nel file di implementazione
