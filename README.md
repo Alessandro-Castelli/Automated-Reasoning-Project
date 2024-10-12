@@ -1,3 +1,27 @@
+# Automated Reasoning Project
+
+This repository contains the code in MiniZinc and ASP for the problem indicated in the file "consegna.txt".
+
+## Project Description
+
+This project was developed by Alessandro Castelli for the Automated Reasoning course held at the University of Udine. 
+The aim of the project is to solve the problem described in the "Consegna" using two distinct approaches: MiniZinc and Answer Set Programming (ASP).
+
+## Repository Content
+
+The repository is structured as follows:
+
+- `consegna/`: contains the detailed description of the problem to be solved.
+- `Minizinc/`: contains the source code and models developed in MiniZinc.
+- `Clingo/`: contains the source code and models developed in ASP.
+
+## Requirements
+
+To run the codes present in this repository, you need to have installed:
+
+- [MiniZinc](https://www.minizinc.org/software.html)
+- [Clingo](https://potassco.org/clingo/)
+---
 # Progetto di Automated Reasoning
 
 Questa repository contiene il codice in MiniZinc e ASP per il problema indicato nel file "consegna.txt".
